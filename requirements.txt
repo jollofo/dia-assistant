@@ -1,0 +1,10 @@
+mss
+pillow
+pytesseract
+soundcard
+PyAudio
+openai-whisper
+google-generativeai
+PyQt5
+pywin32
+ollama 

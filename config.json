@@ -1,0 +1,8 @@
+{
+  "AI_PROVIDER": "ollama",
+  "OLLAMA_MODEL": "gemma3:latest",
+  "GEMINI_API_KEY": "YOUR_GOOGLE_API_KEY",
+  "TESSERACT_CMD_PATH": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+  "SCREEN_MONITOR_INDEX": 0,
+  "SCREEN_OCR_LANGUAGE": "eng"
+}
