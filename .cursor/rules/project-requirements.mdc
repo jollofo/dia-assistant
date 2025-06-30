@@ -1,0 +1,163 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Dia AI Assistant: Technical Development Plan
+Version: 1.2 (Proactive Functionality)
+Objective: This document outlines a structured development plan for building the Dia AI assistant, incorporating proactive insights and actions as seen in the provided screenshot.
+
+1. Project Setup & Environment
+Language: Python 3.10+
+
+Dependency Management: pip and requirements.txt.
+
+Core Dependencies: No changes from v1.1.
+
+# requirements.txt
+speechrecognition
+pyaudio
+mss
+pillow
+pytesseract
+requests
+python-dotenv
+PyQt6
+
+Project Structure: A new agent will be added for knowledge retrieval.
+
+/aura-assistant
+|-- /core
+|   |-- orchestrator.py
+|   |-- agent_manager.py
+|-- /modules
+|   |-- audio_listener.py
+|   |-- screen_scanner.py
+|   |-- /agents
+|       |-- base_agent.py
+|       |-- email_agent.py
+|       |-- knowledge_agent.py # New agent
+|-- /ui
+|   |-- overlay.py
+|-- main.py
+|-- requirements.txt
+|-- .env
+|-- config.json
+
+Initial Setup: Same as v1.1. Ensure Ollama is running with a capable model like llama3.
+
+2. Development Milestones & Tasks
+Milestone 1: Input Perception (The Senses)
+Objective: Continuously capture conversation for a running transcript.
+
+Task 1.1: Audio Listener (/modules/audio_listener.py)
+
+Modification: Instead of just listening for a single trigger, the AudioListener will continuously transcribe speech.
+
+It will append new transcribed text segments to a shared, thread-safe data structure (e.g., a list protected by a threading.Lock) that the Orchestrator can access. This list will serve as the running conversation transcript.
+
+Task 1.2: Screen Scanner (/modules/screen_scanner.py)
+
+No changes required. It remains an on-demand module.
+
+Milestone 2: Orchestration (The Proactive Brain)
+Objective: Continuously analyze the conversation to generate insights and suggest actions.
+
+Task 2.1: Orchestrator Core (/core/orchestrator.py)
+
+Modification: The Orchestrator will run a periodic loop (e.g., every 10-15 seconds).
+
+In each loop, it will take the latest version of the running transcript from the AudioListener.
+
+It will then call the updated LLM integration method to get a full analysis.
+
+Task 2.2: LLM Integration (Ollama) (/core/orchestrator.py)
+
+Modification: The _get_analysis_from_llm(transcript) method will be significantly enhanced. The goal is to get a structured JSON object containing insights, topics, and actions.
+
+Example Ollama Request Payload:
+
+# The running transcript
+conversation_history = "\n".join(transcript)
+
+# The new, more detailed prompt
+prompt_text = f"""
+System: You are a helpful AI meeting assistant. Analyze the following conversation transcript. Respond ONLY with a single, valid JSON object with three keys: "insights", "topics", and "actions".
+- "insights": An array of strings, summarizing the key points of the conversation.
+- "topics": An array of key terms or concepts mentioned that could be defined or explored.
+- "actions": An array of suggested action strings the user might want to take. These should be concise and clickable.
+
+Transcript:
+---
+{conversation_history}
+---
+"""
+
+# The payload sent to the Ollama API
+ollama_payload = {
+    "model": "llama3", # Loaded from config.json
+    "prompt": prompt_text,
+    "format": "json",
+    "stream": False
+}
+
+The method will parse this richer JSON response and pass the entire object to the UI for rendering.
+
+Milestone 3: Action Agents (The Hands)
+Objective: Expand the agent system to handle knowledge lookups.
+
+Task 3.1: Agent Framework (/modules/agents/base_agent.py)
+
+No changes required.
+
+Task 3.2: Knowledge Agent (/modules/agents/knowledge_agent.py)
+
+New File: Create a KnowledgeAgent class inheriting from BaseAgent.
+
+Functionality: Its execute(entities) method will take an entity like {"topic": "Japantown"}.
+
+It will then make another call to the Ollama LLM with a simple prompt: f"Define or explain the following topic: {entities['topic']}".
+
+The result will be sent back to the UI to be displayed to the user.
+
+Task 3.3: Agent Manager (/core/agent_manager.py)
+
+Modification: The agent map will be expanded.
+
+It will now map intents derived from the suggested actions to agents. For example, if the LLM suggests the action "Define Japantown", the UI might translate this into an intent DEFINE_TOPIC with the entity "Japantown".
+
+The map would look like: {"SEND_EMAIL": BrowserbaseEmailAgent, "DEFINE_TOPIC": KnowledgeAgent}.
+
+Milestone 4: Transparent UI & Integration
+Objective: Build a dynamic UI capable of displaying insights and handling actions.
+
+Task 4.1: UI Overlay Window (/ui/overlay.py)
+
+Major Overhaul: The OverlayWindow class will be much more complex than a single label.
+
+It will use PyQt6 layout managers (e.g., QVBoxLayout) to structure the UI.
+
+It will contain:
+
+A QLabel for the "Live Insights" title.
+
+A QListWidget to display the array of insight strings.
+
+A QLabel for the "Actions" title.
+
+A container widget where QPushButtons for each suggested action will be dynamically added and removed.
+
+New Method: update_display(analysis_data: dict). This method will clear the old insights and action buttons and then populate the widgets with the new data from the analysis_data object received from the Orchestrator.
+
+Each dynamically created action button's clicked signal will be connected to a handler function that dispatches the appropriate task to the AgentManager.
+
+Task 4.2: Main Application (main.py)
+
+Modification: The signal/slot mechanism will be updated.
+
+The Orchestrator will have a new signal, e.g., analysis_updated = pyqtSignal(dict).
+
+This signal will be connected to the OverlayWindow.update_display method.
+
+
+The main application loop will now drive the periodic analysis by calling the orchestrator's main analysis function.
