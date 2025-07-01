@@ -1,0 +1,8 @@
+speechrecognition
+pyaudio
+mss
+pillow
+pytesseract
+requests
+python-dotenv
+PyQt6 

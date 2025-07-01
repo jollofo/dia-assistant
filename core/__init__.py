@@ -1,0 +1,1 @@
+# Core package for Dia AI Assistant 

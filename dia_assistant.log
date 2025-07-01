@@ -1,0 +1,187 @@
+2025-06-30 18:57:59,351 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 18:57:59,351 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 18:57:59,351 - __main__ - INFO - Initializing application components...
+2025-06-30 18:57:59,412 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 18:57:59,413 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 18:57:59,413 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 18:57:59,413 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 18:57:59,413 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 18:57:59,413 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 18:57:59,479 - modules.screen_scanner - INFO - ScreenScanner initialized
+2025-06-30 18:57:59,512 - ui.overlay - INFO - OverlayWindow initialized
+2025-06-30 18:57:59,513 - __main__ - INFO - Signal connections established
+2025-06-30 18:57:59,513 - __main__ - INFO - All components initialized successfully
+2025-06-30 18:57:59,688 - modules.audio_listener - INFO - Adjusting for ambient noise...
+2025-06-30 18:58:00,711 - modules.audio_listener - INFO - Audio listening started
+2025-06-30 18:58:00,712 - core.orchestrator - INFO - Started analysis loop with 15.0s interval
+2025-06-30 18:58:00,767 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 18:58:00,767 - __main__ - INFO - Press Ctrl+C or close the overlay window to exit
+2025-06-30 18:59:22,850 - ui.overlay - INFO - Overlay window closing
+2025-06-30 18:59:22,850 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 18:59:22,851 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 18:59:22,851 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 18:59:23,724 - modules.audio_listener - INFO - Audio listening stopped
+2025-06-30 18:59:23,726 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 19:01:12,229 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 19:01:12,230 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 19:01:12,230 - __main__ - INFO - Initializing application components...
+2025-06-30 19:01:12,254 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 19:01:12,254 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:01:12,255 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:01:12,255 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:01:12,255 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 19:01:12,255 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 19:01:12,341 - modules.screen_scanner - INFO - ScreenScanner initialized
+2025-06-30 19:01:12,354 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 19:01:12,354 - __main__ - INFO - Signal connections established
+2025-06-30 19:01:12,354 - __main__ - INFO - All components initialized successfully
+2025-06-30 19:01:12,452 - modules.audio_listener - INFO - Adjusting for ambient noise...
+2025-06-30 19:01:13,472 - modules.audio_listener - INFO - Audio listening started
+2025-06-30 19:01:13,473 - ui.overlay - INFO - Recording started
+2025-06-30 19:01:13,473 - core.orchestrator - INFO - Started analysis loop with 15.0s interval
+2025-06-30 19:01:15,927 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 19:01:15,927 - __main__ - INFO - Click 'Ask AI' for manual analysis or close to exit
+2025-06-30 19:01:51,300 - ui.overlay - INFO - Overlay window closing
+2025-06-30 19:01:51,301 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 19:01:51,303 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 19:01:51,304 - ui.overlay - INFO - Recording stopped
+2025-06-30 19:01:51,305 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 19:01:51,966 - modules.audio_listener - INFO - Audio listening stopped
+2025-06-30 19:01:51,967 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 19:02:01,072 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 19:02:01,073 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 19:02:01,073 - __main__ - INFO - Initializing application components...
+2025-06-30 19:02:01,093 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 19:02:01,093 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:02:01,093 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:02:01,093 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 19:02:01,093 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 19:02:01,093 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 19:02:01,151 - modules.screen_scanner - INFO - ScreenScanner initialized
+2025-06-30 19:02:01,163 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 19:02:01,164 - __main__ - INFO - Signal connections established
+2025-06-30 19:02:01,164 - __main__ - INFO - All components initialized successfully
+2025-06-30 19:02:01,256 - modules.audio_listener - INFO - Adjusting for ambient noise...
+2025-06-30 19:02:02,280 - modules.audio_listener - INFO - Audio listening started
+2025-06-30 19:02:02,280 - ui.overlay - INFO - Recording started
+2025-06-30 19:02:02,281 - core.orchestrator - INFO - Started analysis loop with 15.0s interval
+2025-06-30 19:02:02,579 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 19:02:02,579 - __main__ - INFO - Click 'Ask AI' for manual analysis or close to exit
+2025-06-30 19:02:18,312 - ui.overlay - INFO - Overlay window closing
+2025-06-30 19:02:18,313 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 19:02:18,313 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 19:02:18,314 - ui.overlay - INFO - Recording stopped
+2025-06-30 19:02:18,314 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 19:02:19,990 - modules.audio_listener - INFO - Audio listening stopped
+2025-06-30 19:02:19,990 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:04:20,413 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:04:20,413 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:04:20,413 - __main__ - INFO - Initializing application components...
+2025-06-30 21:04:20,471 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:04:20,471 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:04:20,471 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:04:20,471 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:04:20,471 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:04:20,471 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:04:20,547 - modules.screen_scanner - INFO - ScreenScanner initialized
+2025-06-30 21:04:20,589 - ui.overlay - INFO - Advanced OverlayWindow initialized
+2025-06-30 21:04:20,590 - __main__ - INFO - Signal connections established
+2025-06-30 21:04:20,590 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:04:21,061 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:04:21,061 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:04:35,057 - ui.overlay - INFO - OCR requested
+2025-06-30 21:04:35,058 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:04:35,317 - modules.screen_scanner - ERROR - Failed to extract text from image: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-06-30 21:07:21,614 - ui.overlay - INFO - Overlay window closing
+2025-06-30 21:07:21,615 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:07:21,615 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:07:21,615 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:07:21,615 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:13:04,508 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:13:04,509 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:13:04,509 - __main__ - INFO - Initializing application components...
+2025-06-30 21:13:04,529 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:13:04,529 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:04,530 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:04,530 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:04,530 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:13:04,530 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:13:04,682 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:13:04,682 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:13:04,733 - ui.overlay - INFO - Advanced OverlayWindow initialized
+2025-06-30 21:13:04,734 - __main__ - INFO - Signal connections established
+2025-06-30 21:13:04,735 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:13:05,106 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:13:05,107 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:13:06,976 - ui.overlay - INFO - OCR requested
+2025-06-30 21:13:06,976 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:13:39,802 - ui.overlay - INFO - Overlay window closing
+2025-06-30 21:13:39,802 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:13:39,803 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:13:39,803 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:13:39,803 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:13:42,638 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:13:42,638 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:13:42,638 - __main__ - INFO - Initializing application components...
+2025-06-30 21:13:42,659 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:13:42,660 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:42,660 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:42,660 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:13:42,660 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:13:42,660 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:13:42,794 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:13:42,795 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:13:42,823 - ui.overlay - INFO - Advanced OverlayWindow initialized
+2025-06-30 21:13:42,824 - __main__ - INFO - Signal connections established
+2025-06-30 21:13:42,824 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:13:43,025 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:13:43,025 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:13:45,439 - ui.overlay - INFO - OCR requested
+2025-06-30 21:13:45,439 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:15:56,716 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:15:56,717 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:15:56,717 - __main__ - INFO - Initializing application components...
+2025-06-30 21:15:56,739 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:15:56,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:15:56,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:15:56,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:15:56,740 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:15:56,740 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:15:56,904 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:15:56,905 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:15:56,932 - ui.overlay - INFO - Advanced OverlayWindow initialized
+2025-06-30 21:15:56,933 - __main__ - INFO - Signal connections established
+2025-06-30 21:15:56,933 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:15:57,094 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:15:57,095 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:15:58,857 - ui.overlay - INFO - OCR requested
+2025-06-30 21:15:58,857 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:17:19,901 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:17:19,901 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:17:19,901 - __main__ - INFO - Initializing application components...
+2025-06-30 21:17:19,921 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:17:19,921 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:17:19,921 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:17:19,922 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:17:19,922 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:17:19,922 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:17:20,063 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:17:20,064 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:17:20,096 - ui.overlay - INFO - Advanced OverlayWindow initialized
+2025-06-30 21:17:20,097 - __main__ - INFO - Signal connections established
+2025-06-30 21:17:20,097 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:17:20,422 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:17:20,422 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:17:23,596 - ui.overlay - INFO - OCR requested
+2025-06-30 21:17:23,597 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:17:44,446 - ui.overlay - INFO - Text prompt submitted: What does the screen show
+2025-06-30 21:17:44,447 - __main__ - INFO - Text prompt received: What does the screen show...
+2025-06-30 21:21:01,058 - ui.overlay - INFO - Text prompt submitted: Why are you taking so long
+2025-06-30 21:21:01,059 - __main__ - INFO - Text prompt received: Why are you taking so long...
+2025-06-30 21:21:31,807 - ui.overlay - INFO - Text prompt submitted: How old is lionel messi
+2025-06-30 21:21:31,807 - __main__ - INFO - Text prompt received: How old is lionel messi...
+2025-06-30 21:24:51,461 - ui.overlay - INFO - Overlay window closing
+2025-06-30 21:24:51,462 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:24:51,463 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:24:51,463 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:24:51,464 - __main__ - INFO - Dia AI Assistant shutdown complete
