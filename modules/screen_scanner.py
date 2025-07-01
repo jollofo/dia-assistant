@@ -1,33 +1,96 @@
 """
 Screen Scanner Module
-Provides on-demand screen capture and OCR functionality.
+Provides on-demand screen capture and OCR functionality with continuous monitoring.
 """
 
 import mss
 from PIL import Image
 import logging
-from typing import Dict, Any, Optional, Tuple
+from typing import Dict, Any, Optional, Tuple, Callable
 import io
 import subprocess
 import sys
+import os
+import threading
+import time
+import hashlib
 
 class ScreenScanner:
     """
     Handles screen capture and optical character recognition (OCR) functionality.
-    Operates on-demand when requested by other components.
+    Supports both on-demand scanning and continuous monitoring for changes.
     """
     
     def __init__(self, config: Dict[str, Any]):
         self.config = config
         self.logger = logging.getLogger(__name__)
         
-        # Initialize screenshot interface
-        self.sct = mss.mss()
+        # Thread-local storage for mss instances
+        self._thread_local = threading.local()
+        
+        # Configure Tesseract path explicitly
+        self._configure_tesseract_path()
         
         # Check if tesseract is available
         self.tesseract_available = self._check_tesseract_installation()
         
+        # Continuous monitoring state
+        self._monitoring_active = False
+        self._monitoring_thread = None
+        self._stop_monitoring = threading.Event()
+        self._last_screen_hash = None
+        self._last_screen_text = ""
+        self._change_callback = None
+        
+        # Monitoring configuration
+        self._monitor_interval = config.get('screen_monitoring', {}).get('interval_seconds', 3)
+        self._min_change_chars = config.get('screen_monitoring', {}).get('min_change_chars', 50)
+        
         self.logger.info(f"ScreenScanner initialized - Tesseract available: {self.tesseract_available}")
+        
+    def _get_mss_instance(self):
+        """Get or create a thread-local mss instance."""
+        try:
+            if not hasattr(self._thread_local, 'sct'):
+                self._thread_local.sct = mss.mss()
+            return self._thread_local.sct
+        except Exception as e:
+            self.logger.warning(f"Failed to create thread-local mss instance: {e}")
+            # Fallback to creating a new instance each time
+            return mss.mss()
+        
+    def _configure_tesseract_path(self):
+        """
+        Explicitly configure Tesseract executable path to solve PATH issues.
+        """
+        try:
+            import pytesseract
+            
+            # Common Tesseract installation paths on Windows
+            possible_paths = [
+                r'C:\Program Files\Tesseract-OCR\tesseract.exe',
+                r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe',
+                r'C:\Users\{}\AppData\Local\Tesseract-OCR\tesseract.exe'.format(os.getenv('USERNAME', '')),
+                r'C:\tesseract\tesseract.exe'
+            ]
+            
+            # Try to find existing tesseract executable
+            tesseract_path = None
+            for path in possible_paths:
+                if os.path.exists(path):
+                    tesseract_path = path
+                    break
+                    
+            if tesseract_path:
+                pytesseract.pytesseract.tesseract_cmd = tesseract_path
+                self.logger.info(f"Tesseract path configured: {tesseract_path}")
+            else:
+                self.logger.warning("Tesseract executable not found in common paths")
+                
+        except ImportError:
+            self.logger.warning("pytesseract not installed")
+        except Exception as e:
+            self.logger.warning(f"Error configuring tesseract path: {e}")
         
     def _check_tesseract_installation(self) -> bool:
         """
@@ -40,29 +103,13 @@ class ScreenScanner:
             # Try to import pytesseract
             import pytesseract
             
-            # Try to run tesseract command
-            result = subprocess.run(['tesseract', '--version'], 
-                                  capture_output=True, text=True, timeout=5)
-            
-            if result.returncode == 0:
-                version_info = result.stdout.split('\n')[0]
-                self.logger.info(f"Tesseract found: {version_info}")
-                return True
-            else:
-                self.logger.warning("Tesseract command failed")
-                return False
+            # Try to get tesseract version using pytesseract
+            version = pytesseract.get_tesseract_version()
+            self.logger.info(f"Tesseract found: {version}")
+            return True
                 
-        except subprocess.TimeoutExpired:
-            self.logger.warning("Tesseract command timed out")
-            return False
-        except FileNotFoundError:
-            self.logger.warning("Tesseract executable not found in PATH")
-            return False
-        except ImportError:
-            self.logger.warning("pytesseract module not available")
-            return False
         except Exception as e:
-            self.logger.warning(f"Error checking tesseract: {e}")
+            self.logger.warning(f"Tesseract not available: {e}")
             return False
             
     def capture_full_screen(self) -> Optional[Image.Image]:
@@ -73,12 +120,15 @@ class ScreenScanner:
             PIL Image object of the screen capture, or None if failed
         """
         try:
+            # Get thread-local mss instance
+            sct = self._get_mss_instance()
+            
             # Get all monitors and capture the primary one
-            monitors = self.sct.monitors
+            monitors = sct.monitors
             primary_monitor = monitors[1] if len(monitors) > 1 else monitors[0]
             
             # Capture screenshot
-            screenshot = self.sct.grab(primary_monitor)
+            screenshot = sct.grab(primary_monitor)
             
             # Convert to PIL Image
             img = Image.frombytes("RGB", screenshot.size, screenshot.bgra, "raw", "BGRX")
@@ -104,6 +154,9 @@ class ScreenScanner:
             PIL Image object of the region capture, or None if failed
         """
         try:
+            # Get thread-local mss instance
+            sct = self._get_mss_instance()
+            
             # Define the region to capture
             region = {
                 "top": y,
@@ -113,7 +166,7 @@ class ScreenScanner:
             }
             
             # Capture the region
-            screenshot = self.sct.grab(region)
+            screenshot = sct.grab(region)
             
             # Convert to PIL Image
             img = Image.frombytes("RGB", screenshot.size, screenshot.bgra, "raw", "BGRX")
@@ -245,7 +298,8 @@ class ScreenScanner:
             Tuple of (width, height)
         """
         try:
-            monitors = self.sct.monitors
+            sct = self._get_mss_instance()
+            monitors = sct.monitors
             primary_monitor = monitors[1] if len(monitors) > 1 else monitors[0]
             
             width = primary_monitor["width"]
@@ -265,7 +319,8 @@ class ScreenScanner:
             Number of monitors
         """
         try:
-            return len(self.sct.monitors) - 1  # Subtract 1 to exclude the "all monitors" entry
+            sct = self._get_mss_instance()
+            return len(sct.monitors) - 1  # Subtract 1 to exclude the "all monitors" entry
         except Exception as e:
             self.logger.error(f"Failed to get monitor count: {e}")
             return 1
@@ -293,3 +348,146 @@ Alternative (if you have package managers):
 
 After installation, restart the application to use OCR features.
         """ 
+
+    def start_continuous_monitoring(self, change_callback: Callable[[str], None] = None):
+        """
+        Start continuous screen monitoring for changes.
+        
+        Args:
+            change_callback: Function to call when screen content changes
+        """
+        if self._monitoring_active:
+            self.logger.warning("Screen monitoring is already active")
+            return
+            
+        if not self.tesseract_available:
+            self.logger.error("Cannot start monitoring - Tesseract not available")
+            return
+            
+        self._change_callback = change_callback
+        self._monitoring_active = True
+        self._stop_monitoring.clear()
+        
+        # Initialize with current screen content
+        self._update_baseline_screen()
+        
+        # Start monitoring thread
+        self._monitoring_thread = threading.Thread(
+            target=self._monitor_screen_changes,
+            daemon=True,
+            name="ScreenMonitor"
+        )
+        self._monitoring_thread.start()
+        
+        self.logger.info(f"Started continuous screen monitoring (interval: {self._monitor_interval}s)")
+        
+    def stop_continuous_monitoring(self):
+        """Stop continuous screen monitoring."""
+        if not self._monitoring_active:
+            return
+            
+        self._monitoring_active = False
+        self._stop_monitoring.set()
+        
+        # Wait for thread to finish
+        if self._monitoring_thread and self._monitoring_thread.is_alive():
+            self._monitoring_thread.join(timeout=2)
+            
+        self._change_callback = None
+        self.logger.info("Stopped continuous screen monitoring")
+        
+    def _monitor_screen_changes(self):
+        """Background thread that monitors for screen changes."""
+        consecutive_errors = 0
+        max_consecutive_errors = 5
+        
+        while self._monitoring_active and not self._stop_monitoring.is_set():
+            try:
+                # Capture current screen
+                current_text = self.capture_and_extract_text()
+                
+                if current_text and not current_text.startswith("OCR_ERROR:"):
+                    # Reset error counter on success
+                    consecutive_errors = 0
+                    
+                    # Calculate content hash for comparison
+                    content_hash = hashlib.md5(current_text.encode()).hexdigest()
+                    
+                    # Check if content has changed significantly
+                    if self._has_significant_change(current_text):
+                        self.logger.info("Significant screen content change detected")
+                        
+                        # Update baseline
+                        self._last_screen_hash = content_hash
+                        self._last_screen_text = current_text
+                        
+                        # Notify callback if provided
+                        if self._change_callback:
+                            try:
+                                self._change_callback(current_text)
+                            except Exception as e:
+                                self.logger.error(f"Error in change callback: {e}")
+                else:
+                    consecutive_errors += 1
+                    
+                # Wait for next check
+                if not self._stop_monitoring.wait(self._monitor_interval):
+                    continue
+                else:
+                    break
+                    
+            except Exception as e:
+                consecutive_errors += 1
+                self.logger.error(f"Error in screen monitoring: {e}")
+                
+                # If too many consecutive errors, stop monitoring to prevent spam
+                if consecutive_errors >= max_consecutive_errors:
+                    self.logger.error(f"Too many consecutive errors ({consecutive_errors}), stopping screen monitoring")
+                    self._monitoring_active = False
+                    break
+                    
+                time.sleep(1)  # Brief pause before retrying
+                
+    def _update_baseline_screen(self):
+        """Update the baseline screen content for comparison."""
+        try:
+            current_text = self.capture_and_extract_text()
+            if current_text and not current_text.startswith("OCR_ERROR:"):
+                self._last_screen_text = current_text
+                self._last_screen_hash = hashlib.md5(current_text.encode()).hexdigest()
+                self.logger.debug("Updated baseline screen content")
+        except Exception as e:
+            self.logger.error(f"Error updating baseline screen: {e}")
+            
+    def _has_significant_change(self, current_text: str) -> bool:
+        """
+        Check if the current screen content represents a significant change.
+        
+        Args:
+            current_text: Current screen text content
+            
+        Returns:
+            True if change is significant enough to report
+        """
+        if not self._last_screen_text:
+            return True  # First capture is always significant
+            
+        # Compare text lengths
+        length_diff = abs(len(current_text) - len(self._last_screen_text))
+        if length_diff < self._min_change_chars:
+            return False
+            
+        # Simple text similarity check
+        common_chars = set(current_text.lower()) & set(self._last_screen_text.lower())
+        if common_chars and len(common_chars) / max(len(current_text), len(self._last_screen_text)) > 0.8:
+            return False  # Too similar
+            
+        return True
+        
+    def is_monitoring_active(self) -> bool:
+        """Check if continuous monitoring is currently active."""
+        return self._monitoring_active
+        
+    def get_last_screen_content(self) -> str:
+        """Get the last captured screen content."""
+        return self._last_screen_text 

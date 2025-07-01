@@ -9,7 +9,7 @@ import time
 from typing import Dict, Any, List
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
-    QPushButton, QLineEdit, QTextEdit, QFrame
+    QPushButton, QLineEdit, QTextEdit, QFrame, QSizeGrip
 )
 from PyQt6.QtCore import Qt, pyqtSignal, QTimer
 from PyQt6.QtGui import QFont, QTextCursor
@@ -30,20 +30,19 @@ class OverlayWindow(QWidget):
         self.config = config
         self.logger = logging.getLogger(__name__)
         
-        # Minimalistic UI configuration
-        self.width = 300  # Smaller width
-        self.height = 200  # Smaller height
+        # Resizable UI configuration
+        self.width = 320  # Slightly wider for better resizable experience
+        self.height = 240  # Taller to accommodate resize functionality
         self.transparency = 0.92
         
-        # State tracking
+        # Toggle state tracking
         self.is_audio_active = False
-        self.response_count = 0
+        self.is_eye_active = False
         
         # UI components
         self.eye_button = None
         self.mic_button = None
         self.text_input = None
-        self.close_button = None
         self.output_area = None
         self.status_label = None
         
@@ -65,14 +64,20 @@ class OverlayWindow(QWidget):
             self.height
         )
         
-        # Minimalistic window flags
+        # Resizable window flags - removed FramelessWindowHint to allow resizing
         self.setWindowFlags(
             Qt.WindowType.WindowStaysOnTopHint |
-            Qt.WindowType.FramelessWindowHint |
             Qt.WindowType.Tool
         )
         
         self.setWindowOpacity(self.transparency)
+        
+        # Set minimum size for usability
+        self.setMinimumSize(250, 150)
+        
+        # Add resize grip for better UX
+        self.size_grip = QSizeGrip(self)
+        self.size_grip.setFixedSize(16, 16)
         
     def _setup_layout(self):
         """Create minimalistic layout."""
@@ -91,13 +96,20 @@ class OverlayWindow(QWidget):
         self.status_label.setWordWrap(True)
         main_layout.addWidget(self.status_label)
         
-        # Compact output area (only shows when needed)
+        # Output area (only shows when needed)
         self.output_area = QTextEdit()
         self.output_area.setObjectName("output_area")
         self.output_area.setReadOnly(True)
-        self.output_area.setMaximumHeight(80)
+        self.output_area.setMinimumHeight(60)
         self.output_area.hide()  # Hidden by default
         main_layout.addWidget(self.output_area)
+        
+        # Add resize grip in bottom-right corner
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addStretch()
+        bottom_layout.addWidget(self.size_grip)
+        bottom_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.addLayout(bottom_layout)
         
         self.setLayout(main_layout)
         
@@ -108,16 +120,16 @@ class OverlayWindow(QWidget):
         
         # Eye button
         self.eye_button = QPushButton("👁")
-        self.eye_button.setObjectName("control_button")
+        self.eye_button.setObjectName("eye_button")
         self.eye_button.setFixedSize(24, 24)
-        self.eye_button.setToolTip("Screen")
-        self.eye_button.clicked.connect(self._handle_ocr_request)
+        self.eye_button.setToolTip("Screen Scanner")
+        self.eye_button.clicked.connect(self._handle_eye_toggle)
         
         # Mic button
         self.mic_button = QPushButton("🎤")
-        self.mic_button.setObjectName("control_button")
+        self.mic_button.setObjectName("mic_button")
         self.mic_button.setFixedSize(24, 24)
-        self.mic_button.setToolTip("Audio")
+        self.mic_button.setToolTip("Audio Listener")
         self.mic_button.clicked.connect(self._handle_audio_toggle)
         
         # Text input - more compact
@@ -126,21 +138,14 @@ class OverlayWindow(QWidget):
         self.text_input.setPlaceholderText("Ask AI...")
         self.text_input.returnPressed.connect(self._handle_text_submit)
         
-        # Close button
-        self.close_button = QPushButton("✕")
-        self.close_button.setObjectName("close_button")
-        self.close_button.setFixedSize(20, 20)
-        self.close_button.clicked.connect(self.close)
-        
         control_layout.addWidget(self.eye_button)
         control_layout.addWidget(self.mic_button)
         control_layout.addWidget(self.text_input)
-        control_layout.addWidget(self.close_button)
         
         return control_layout
         
     def _apply_styling(self):
-        """Apply clean, minimalistic styling."""
+        """Apply clean, minimalistic styling with toggle states."""
         style_sheet = """
         QWidget {
             background-color: rgba(25, 25, 25, 235);
@@ -150,29 +155,16 @@ class OverlayWindow(QWidget):
             font-size: 11px;
         }
         
-        QPushButton#control_button {
+        QPushButton#eye_button, QPushButton#mic_button {
             background-color: rgba(60, 60, 60, 150);
             border: 1px solid rgba(100, 100, 100, 100);
             border-radius: 4px;
             font-size: 12px;
         }
         
-        QPushButton#control_button:hover {
+        QPushButton#eye_button:hover, QPushButton#mic_button:hover {
             background-color: rgba(80, 80, 80, 180);
             border: 1px solid rgba(120, 120, 120, 150);
-        }
-        
-        QPushButton#close_button {
-            background-color: rgba(220, 53, 69, 150);
-            border: none;
-            border-radius: 3px;
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-        }
-        
-        QPushButton#close_button:hover {
-            background-color: rgba(220, 53, 69, 200);
         }
         
         QLineEdit#text_input {
@@ -200,86 +192,131 @@ class OverlayWindow(QWidget):
             padding: 4px;
             font-size: 10px;
         }
+        
+        /* Simple, minimal scroll bar styling */
+        QScrollBar:vertical {
+            background: rgba(60, 60, 60, 100);
+            width: 8px;
+            border-radius: 4px;
+            margin: 0px;
+        }
+        
+        QScrollBar::handle:vertical {
+            background: rgba(120, 120, 120, 150);
+            border-radius: 4px;
+            min-height: 20px;
+        }
+        
+        QScrollBar::handle:vertical:hover {
+            background: rgba(140, 140, 140, 180);
+        }
+        
+        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+            height: 0px;
+        }
+        
+        QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+            background: none;
+                }
         """
         
-        # Apply audio active state styling
-        if self.is_audio_active:
-            style_sheet += """
-            QPushButton#control_button:first-child + QPushButton {
-                background-color: rgba(244, 67, 54, 180);
-                border: 1px solid rgba(244, 67, 54, 200);
-            }
-            """
-        
         self.setStyleSheet(style_sheet)
+        self._update_button_states()
         
-    def _handle_ocr_request(self):
-        """Handle OCR button click with immediate feedback."""
-        self.status_label.setText("📷 Capturing screen...")
-        self.status_label.setStyleSheet("color: #FFA726;")
-        QApplication.processEvents()  # Force immediate update
-        self.ocr_requested.emit()
-        
-    def _handle_audio_toggle(self):
-        """Handle audio toggle with immediate visual feedback."""
-        self.is_audio_active = not self.is_audio_active
-        
-        if self.is_audio_active:
-            self.status_label.setText("🎤 Listening...")
-            self.status_label.setStyleSheet("color: #EF5350;")
-            self.mic_button.setStyleSheet("""
-                QPushButton#control_button {
-                    background-color: rgba(244, 67, 54, 200);
-                    border: 1px solid rgba(244, 67, 54, 255);
+    def _update_button_states(self):
+        """Update visual state of toggle buttons."""
+        # Update eye button state
+        if self.is_eye_active:
+            self.eye_button.setStyleSheet("""
+                QPushButton#eye_button {
+                    background-color: rgba(76, 175, 80, 200);
+                    border: 1px solid rgba(76, 175, 80, 255);
+                    color: white;
                 }
             """)
         else:
-            self.status_label.setText("Ready")
-            self.status_label.setStyleSheet("color: #B0BEC5;")
-            self.mic_button.setStyleSheet("")
+            self.eye_button.setStyleSheet("")
             
+        # Update mic button state
+        if self.is_audio_active:
+            self.mic_button.setStyleSheet("""
+                QPushButton#mic_button {
+                    background-color: rgba(244, 67, 54, 200);
+                    border: 1px solid rgba(244, 67, 54, 255);
+                    color: white;
+                }
+            """)
+        else:
+            self.mic_button.setStyleSheet("")
+    
+    def _handle_eye_toggle(self):
+        """Handle eye button toggle with visual feedback for monitoring states."""
+        # Don't auto-toggle state here - let main.py handle it based on monitoring
+        self.status_label.setText("👁 Processing...")
+        self.status_label.setStyleSheet("color: #42A5F5;")
+        
+        self._update_button_states()
+        QApplication.processEvents()  # Force immediate update
+        
+        # Emit signal to main.py to handle monitoring logic
+        self.ocr_requested.emit()
+        
+        # Reset status will be handled by main.py responses
+        
+    def _handle_audio_toggle(self):
+        """Handle audio toggle with visual feedback."""
+        self.is_audio_active = not self.is_audio_active
+        
+        if self.is_audio_active:
+            self.status_label.setText("🎤 Audio listener active")
+            self.status_label.setStyleSheet("color: #EF5350;")
+        else:
+            self.status_label.setText("🎤 Audio listener inactive")
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+            
+        self._update_button_states()
         QApplication.processEvents()  # Force immediate update
         self.audio_toggle_requested.emit()
+        
+        # Reset status after 2 seconds
+        QTimer.singleShot(2000, lambda: (
+            self.status_label.setText("Ready"),
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+        ))
         
     def _handle_text_submit(self):
         """Handle text submission with immediate feedback."""
         prompt = self.text_input.text().strip()
         if prompt:
-            self.status_label.setText("🤔 Thinking...")
+            self.status_label.setText("🤔 Processing...")
             self.status_label.setStyleSheet("color: #42A5F5;")
             self.text_input.clear()
             QApplication.processEvents()  # Force immediate update
             self.text_prompt_submitted.emit(prompt)
             
     def add_response(self, title: str, summary: str, actions: List[str]):
-        """Add AI response with minimalistic display."""
-        self.response_count += 1
-        
+        """Add AI response with persistent display (no auto-hide)."""
         # Update status
-        self.status_label.setText(f"✅ Response {self.response_count}")
+        self.status_label.setText("✅ Response received")
         self.status_label.setStyleSheet("color: #66BB6A;")
         
-        # Show compact output
+        # Show full output (no truncation since window is resizable)
         if summary:
-            # Truncate long responses
-            display_text = summary
-            if len(display_text) > 100:
-                display_text = display_text[:100] + "..."
-                
             self.output_area.clear()
             self.output_area.append(f"<b>{title}</b>")
-            self.output_area.append(display_text)
+            self.output_area.append(summary)  # Show full text
             
             if actions:
-                action_text = " • ".join(actions[:2])  # Only show first 2 actions
-                if len(actions) > 2:
-                    action_text += f" (+{len(actions)-2} more)"
+                action_text = " • ".join(actions)  # Show all actions
                 self.output_area.append(f"<i>{action_text}</i>")
                 
-            self.output_area.show()
+            self.output_area.show()  # Show the output area
             
-            # Auto-hide after 5 seconds
-            QTimer.singleShot(5000, self._hide_output)
+        # Reset status after 3 seconds but keep output visible
+        QTimer.singleShot(3000, lambda: (
+            self.status_label.setText("Ready"),
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+        ))
             
     def _hide_output(self):
         """Hide the output area and reset status."""
@@ -312,19 +349,30 @@ class OverlayWindow(QWidget):
         self.output_area.hide()
         self.status_label.setText("Ready")
         self.status_label.setStyleSheet("color: #B0BEC5;")
-        self.response_count = 0
+        
+    def set_monitoring_active(self, active: bool):
+        """Update UI to reflect continuous monitoring state."""
+        self.is_eye_active = active
+        self._update_button_states()
+        
+        if active:
+            # Keep status updated to show monitoring is active
+            self.status_label.setText("👁 Monitoring screen...")
+            self.status_label.setStyleSheet("color: #4CAF50;")
+        else:
+            self.status_label.setText("👁 Monitoring stopped")
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+            
+        QApplication.processEvents()
+        
+        # Reset status after brief display if not monitoring  
+        if not active:
+            QTimer.singleShot(2000, lambda: (
+                self.status_label.setText("Ready"),
+                self.status_label.setStyleSheet("color: #B0BEC5;")
+            ))
         
     def closeEvent(self, event):
         """Handle window close event."""
         self.window_closed.emit()
-        event.accept()
-        
-    def mousePressEvent(self, event):
-        """Enable window dragging."""
-        if event.button() == Qt.MouseButton.LeftButton:
-            self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
-            
-    def mouseMoveEvent(self, event):
-        """Handle window dragging."""
-        if hasattr(self, 'drag_position') and event.buttons() == Qt.MouseButton.LeftButton:
-            self.move(event.globalPosition().toPoint() - self.drag_position) 
+        event.accept() 

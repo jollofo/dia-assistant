@@ -9,7 +9,7 @@ import logging
 import os
 from typing import Dict, Any
 from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import QTimer
+from PyQt6.QtCore import QTimer, QObject, pyqtSignal
 
 # Import core modules
 from core.orchestrator import Orchestrator
@@ -22,13 +22,18 @@ from modules.screen_scanner import ScreenScanner
 # Import UI
 from ui.overlay import OverlayWindow
 
-class DiaAssistant:
+class DiaAssistant(QObject):
     """
     Main application class that coordinates all components of the Dia AI Assistant.
     """
     
+    # Qt signals for thread-safe UI updates
+    screen_change_detected = pyqtSignal(str)
+    
     def __init__(self):
         """Initialize the Dia AI Assistant."""
+        super().__init__()  # Initialize QObject
+        
         # Setup logging
         self._setup_logging()
         self.logger = logging.getLogger(__name__)
@@ -150,14 +155,25 @@ class DiaAssistant:
         # Connect window close to application shutdown
         self.overlay_window.window_closed.connect(self._handle_window_closed)
         
+        # Connect screen change signal for thread-safe UI updates
+        self.screen_change_detected.connect(self._handle_screen_change_safe)
+        
         self.logger.info("Signal connections established")
         
     def _handle_ocr_request(self):
         """
         Handle OCR requests from the UI with improved speed and error handling.
+        Now also manages continuous screen monitoring.
         """
         try:
-            self.logger.info("OCR request received - capturing screen")
+            self.logger.info("OCR request received - checking monitoring status")
+            
+            # Check if we're toggling monitoring or doing single capture
+            if hasattr(self, '_screen_monitoring_active'):
+                is_currently_monitoring = self._screen_monitoring_active
+            else:
+                is_currently_monitoring = False
+                self._screen_monitoring_active = False
             
             # Fast response for missing tesseract
             if not hasattr(self, '_tesseract_checked'):
@@ -176,6 +192,137 @@ class DiaAssistant:
                     ["Add to PATH after install", "Restart application"]
                 )
                 return
+            
+            # Toggle continuous monitoring
+            if not is_currently_monitoring:
+                # Start continuous monitoring
+                self._start_screen_monitoring()
+            else:
+                # Stop continuous monitoring and do single capture
+                self._stop_screen_monitoring()
+                self._perform_single_screen_capture()
+                
+        except Exception as e:
+            self.logger.error(f"OCR error: {e}")
+            self.overlay_window.add_response("❌ Error", f"OCR failed: {str(e)[:30]}...", 
+                                            ["Check system"])
+            
+    def _start_screen_monitoring(self):
+        """Start continuous screen monitoring."""
+        try:
+            self.logger.info("Starting continuous screen monitoring")
+            self._screen_monitoring_active = True
+            
+            # Update UI to show monitoring active
+            self.overlay_window.set_monitoring_active(True)
+            
+            # Start monitoring with thread-safe callback
+            self.screen_scanner.start_continuous_monitoring(
+                change_callback=self._screen_change_callback
+            )
+            
+            self.overlay_window.add_response(
+                "👁 Screen Monitor Active", 
+                "I'm now continuously watching your screen for changes. I'll notify you when I detect significant changes in content.",
+                ["Stop monitoring", "View current content", "Ask about screen"]
+            )
+            
+        except Exception as e:
+            self.logger.error(f"Error starting screen monitoring: {e}")
+            self._screen_monitoring_active = False
+            self.overlay_window.add_response("❌ Monitor Error", 
+                                            f"Failed to start monitoring: {str(e)}", 
+                                            ["Try again", "Check system"])
+                                            
+    def _stop_screen_monitoring(self):
+        """Stop continuous screen monitoring."""
+        try:
+            self.logger.info("Stopping continuous screen monitoring")
+            self._screen_monitoring_active = False
+            
+            # Update UI to show monitoring stopped
+            self.overlay_window.set_monitoring_active(False)
+            
+            self.screen_scanner.stop_continuous_monitoring()
+            
+            self.overlay_window.add_response(
+                "👁 Screen Monitor Stopped", 
+                "Screen monitoring has been stopped. Click the eye button again to capture a single screenshot or restart monitoring.",
+                ["Single capture", "Restart monitoring", "Ask about last seen"]
+            )
+            
+        except Exception as e:
+            self.logger.error(f"Error stopping screen monitoring: {e}")
+            self.overlay_window.add_response("❌ Monitor Error", 
+                                            f"Error stopping monitoring: {str(e)}", 
+                                            ["Force stop", "Restart"])
+                                            
+    def _screen_change_callback(self, screen_content: str):
+        """
+        Thread-safe callback for screen changes.
+        This method runs in the background thread and emits a signal.
+        
+        Args:
+            screen_content: The new screen content that was detected
+        """
+        # Emit signal to handle on main thread
+        self.screen_change_detected.emit(screen_content)
+        
+    def _handle_screen_change_safe(self, screen_content: str):
+        """
+        Handle detected screen content changes (runs on main thread).
+        
+        Args:
+            screen_content: The new screen content that was detected
+        """
+        try:
+            self.logger.info("Screen content change detected - analyzing")
+            
+            # Enhanced analysis prompt for screen changes
+            analysis_prompt = f"""I'm Dia, continuously monitoring your screen. I just detected a significant change in your screen content:
+
+NEW SCREEN CONTENT:
+---
+{screen_content[:1500]}
+---
+
+Please analyze this updated content and provide:
+- What type of change occurred (new window, content update, navigation, etc.)
+- Key information now visible on screen
+- Any important insights or patterns
+- Suggestions for actions the user might want to take
+
+Provide a helpful summary of what changed and what's now visible."""
+            
+            # Process with AI
+            response = self.orchestrator.process_direct_prompt(analysis_prompt)
+            
+            if response:
+                self.overlay_window.add_response(
+                    "🔄 Screen Change Detected", 
+                    response,
+                    ["Continue monitoring", "Stop monitoring", "Ask follow-up"]
+                )
+            else:
+                word_count = len(screen_content.split())
+                self.overlay_window.add_response(
+                    "🔄 Screen Updated", 
+                    f"I detected a screen change ({word_count} words now visible). Ask me what I can see.",
+                    ["What's on screen?", "Continue monitoring", "Stop monitoring"]
+                )
+                
+        except Exception as e:
+            self.logger.error(f"Error handling screen change: {e}")
+            self.overlay_window.add_response(
+                "🔄 Screen Changed", 
+                "I detected a screen change but couldn't analyze it. You can ask me what I see.",
+                ["What do you see?", "Continue monitoring"]
+            )
+            
+    def _perform_single_screen_capture(self):
+        """Perform a single screen capture and analysis."""
+        try:
+            self.logger.info("Performing single screen capture")
             
             # Capture screen content
             screen_text = self.screen_scanner.capture_and_extract_text()
@@ -199,40 +346,49 @@ class DiaAssistant:
                 return
             
             if screen_text and len(screen_text.strip()) > 10:
-                # Quick AI analysis with shorter prompt
-                analysis_prompt = f"Analyze this screen content briefly: {screen_text[:800]}"
+                # Enhanced AI analysis with better context
+                analysis_prompt = f"""I am Dia, an AI assistant that can see your screen in real-time. I just captured the following text from your screen using OCR:
+
+---
+{screen_text[:1500]}
+---
+
+Please analyze this screen content and provide helpful insights about what's visible. Consider:
+- What type of content or application is being displayed
+- Key information or topics present
+- Possible actions the user might want to take
+- Any interesting patterns or insights
+
+Provide a clear, helpful summary of what I can see on your screen."""
                 
-                # Fast AI call
+                # Fast AI call with enhanced context
                 try:
-                    analysis = self.orchestrator._get_analysis_from_llm(analysis_prompt)
+                    response = self.orchestrator.process_direct_prompt(analysis_prompt)
                     
-                    if analysis and analysis.get('insights'):
-                        insights = analysis.get('insights', [])
-                        actions = analysis.get('actions', [])
-                        
-                        summary = insights[0] if insights else "Screen analyzed"
-                        if len(summary) > 80:
-                            summary = summary[:80] + "..."
-                            
-                        self.overlay_window.add_response("👁 Screen", summary, actions[:3])
+                    if response:
+                        # Show full response since window is resizable
+                        self.overlay_window.add_response("👁 Screen Analysis", response, 
+                                                        ["Start monitoring", "Capture again", "Ask about screen"])
                     else:
                         word_count = len(screen_text.split())
-                        self.overlay_window.add_response("👁 Screen", 
-                                                        f"Captured {word_count} words from screen", 
-                                                        ["Content captured"])
+                        self.overlay_window.add_response("👁 Screen Captured", 
+                                                        f"I can see your screen content ({word_count} words detected) but analysis failed. Try asking me specific questions about what's visible.", 
+                                                        ["Try analysis again", "Ask specific question"])
                 except Exception as e:
-                    self.overlay_window.add_response("👁 Screen", 
-                                                    "Captured but AI analysis failed", 
-                                                    ["Try again"])
+                    word_count = len(screen_text.split())
+                    self.overlay_window.add_response("👁 Screen Captured", 
+                                                    f"I successfully read {word_count} words from your screen. You can ask me questions about what I saw.", 
+                                                    ["Ask about content", "Start monitoring"])
             else:
-                self.overlay_window.add_response("👁 Screen", 
-                                                "No readable text found on screen", 
-                                                ["Try different content"])
-                
+                self.overlay_window.add_response("👁 Screen Scanner", 
+                                                "I'm looking at your screen but can't detect readable text. Try focusing on a window with text content.", 
+                                                ["Try different area", "Check text visibility"])
+                                                
         except Exception as e:
-            self.logger.error(f"OCR error: {e}")
-            self.overlay_window.add_response("❌ Error", f"OCR failed: {str(e)[:30]}...", 
-                                            ["Check system"])
+            self.logger.error(f"Single capture error: {e}")
+            self.overlay_window.add_response("❌ Capture Error", 
+                                            f"Screen capture failed: {str(e)}", 
+                                            ["Try again", "Check system"])
             
     def _handle_audio_toggle(self):
         """
@@ -261,39 +417,29 @@ class DiaAssistant:
             
     def _handle_text_prompt(self, prompt: str):
         """
-        Handle text prompts with faster processing.
+        Handle text prompts with proper direct prompt processing.
         """
         try:
-            self.logger.info(f"Processing text prompt: {prompt[:50]}...")
+            self.logger.info(f"Processing text prompt: {prompt}")
             
-            # Quick AI analysis
-            try:
-                analysis = self.orchestrator._get_analysis_from_llm(prompt)
-                
-                if analysis:
-                    insights = analysis.get('insights', [])
-                    actions = analysis.get('actions', [])
-                    
-                    # Use first insight as response
-                    response = insights[0] if insights else "Request processed"
-                    if len(response) > 100:
-                        response = response[:100] + "..."
-                        
-                    self.overlay_window.add_response("🤖 AI", response, actions[:3])
-                else:
-                    self.overlay_window.add_response("🤖 AI", 
-                                                    "Response generated but not parsed correctly", 
-                                                    ["Try rephrasing"])
-                    
-            except Exception as e:
-                self.logger.error(f"AI processing error: {e}")
+            # Use the dedicated direct prompt method
+            response = self.orchestrator.process_direct_prompt(prompt)
+            
+            if response:
+                # Show full response since window is resizable
+                self.overlay_window.add_response("🤖 Dia AI", response, ["Ask follow-up", "Use screen reader", "Listen to audio"])
+                self.logger.info("Text prompt processed successfully")
+            else:
                 self.overlay_window.add_response("❌ AI Error", 
-                                                "Failed to process request", 
+                                                "No response generated", 
                                                 ["Check Ollama", "Try again"])
+                self.logger.warning("No response generated for text prompt")
                 
         except Exception as e:
             self.logger.error(f"Text prompt error: {e}")
-            self.overlay_window.add_response("❌ Error", "Request failed", ["Try again"])
+            self.overlay_window.add_response("❌ Error", 
+                                            f"Request failed: {str(e)}", 
+                                            ["Check connection", "Try again"])
             
     def _handle_error(self, error_message: str):
         """

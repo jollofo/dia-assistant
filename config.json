@@ -2,7 +2,7 @@
     "ollama": {
         "base_url": "http://localhost:11434",
         "model": "gemma3:latest",
-        "timeout": 15
+        "timeout": 20
     },
     "audio": {
         "sample_rate": 16000,
@@ -20,12 +20,16 @@
     "analysis": {
         "interval_seconds": 20,
         "max_transcript_length": 3000,
-        "min_analysis_length": 50
+        "min_analysis_length": 20
     },
     "ocr": {
         "enabled": true,
         "max_text_length": 1000,
         "timeout_seconds": 10
+    },
+    "screen_monitoring": {
+        "interval_seconds": 3,
+        "min_change_chars": 50
     },
     "performance": {
         "ui_update_delay": 100,

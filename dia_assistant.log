@@ -185,3 +185,597 @@
 2025-06-30 21:24:51,463 - __main__ - INFO - Shutting down Dia AI Assistant...
 2025-06-30 21:24:51,463 - core.orchestrator - INFO - Stopped analysis loop
 2025-06-30 21:24:51,464 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:30:18,462 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:30:18,463 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:30:18,463 - __main__ - INFO - Initializing application components...
+2025-06-30 21:30:18,487 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:30:18,487 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:30:18,488 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:30:18,488 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:30:18,488 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:30:18,488 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:30:18,647 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:30:18,647 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:30:18,682 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:30:18,682 - __main__ - INFO - Signal connections established
+2025-06-30 21:30:18,682 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:30:19,088 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:30:19,088 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:30:27,831 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:30:36,543 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:31:46,845 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:31:46,845 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:31:46,845 - __main__ - INFO - Initializing application components...
+2025-06-30 21:31:46,865 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:31:46,865 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:31:46,865 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:31:46,866 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:31:46,866 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:31:46,866 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:31:47,037 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:31:47,037 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:31:47,062 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:31:47,062 - __main__ - INFO - Signal connections established
+2025-06-30 21:31:47,062 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:31:47,190 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:31:47,191 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:31:52,268 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:32:15,778 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:32:15,778 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:32:15,778 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:32:15,779 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:32:19,432 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:32:19,432 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:32:19,432 - __main__ - INFO - Initializing application components...
+2025-06-30 21:32:19,454 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:32:19,454 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:19,454 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:19,454 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:19,455 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:32:19,455 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:32:19,628 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:32:19,628 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:32:19,653 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:32:19,653 - __main__ - INFO - Signal connections established
+2025-06-30 21:32:19,654 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:32:19,771 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:32:19,771 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:32:24,306 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:32:51,593 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:32:51,593 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:32:51,593 - __main__ - INFO - Initializing application components...
+2025-06-30 21:32:51,617 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:32:51,617 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:51,617 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:51,617 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:32:51,617 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:32:51,618 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:32:51,749 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:32:51,749 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:32:51,775 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:32:51,776 - __main__ - INFO - Signal connections established
+2025-06-30 21:32:51,776 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:32:52,069 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:32:52,069 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:32:54,424 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:35:28,483 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:35:28,483 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:35:28,483 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:35:28,483 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:35:31,151 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:35:31,152 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:35:31,152 - __main__ - INFO - Initializing application components...
+2025-06-30 21:35:31,171 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:35:31,171 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:35:31,172 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:35:31,172 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:35:31,172 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:35:31,172 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:35:31,344 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:35:31,344 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:35:31,371 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:35:31,371 - __main__ - INFO - Signal connections established
+2025-06-30 21:35:31,372 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:35:31,602 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:35:31,602 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:35:33,772 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:36:33,951 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:36:33,952 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:36:33,952 - __main__ - INFO - Initializing application components...
+2025-06-30 21:36:33,976 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:36:33,977 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:36:33,977 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:36:33,978 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:36:33,978 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:36:33,978 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:36:34,137 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:36:34,138 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:36:34,162 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:36:34,163 - __main__ - INFO - Signal connections established
+2025-06-30 21:36:34,163 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:36:34,396 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:36:34,397 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:36:41,054 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:36:42,856 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:36:42,857 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:36:42,857 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:36:42,857 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:37:37,720 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:37:37,721 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:37:37,721 - __main__ - INFO - Initializing application components...
+2025-06-30 21:37:37,740 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:37:37,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:37:37,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:37:37,740 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:37:37,740 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:37:37,741 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:37:37,877 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:37:37,878 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:37:37,902 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:37:37,903 - __main__ - INFO - Signal connections established
+2025-06-30 21:37:37,903 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:37:38,059 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:37:38,059 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:37:41,824 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:46:36,695 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:46:36,695 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:46:36,695 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:46:36,695 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:46:54,547 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:46:54,548 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:46:54,548 - __main__ - INFO - Initializing application components...
+2025-06-30 21:46:54,567 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:46:54,568 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:46:54,568 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:46:54,568 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:46:54,568 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:46:54,569 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:46:54,701 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:46:54,701 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:46:54,728 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:46:54,728 - __main__ - INFO - Signal connections established
+2025-06-30 21:46:54,729 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:46:54,903 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:46:54,904 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:47:18,229 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:48:30,922 - __main__ - INFO - Audio toggle - Active: True
+2025-06-30 21:48:31,067 - modules.audio_listener - INFO - Adjusting for ambient noise...
+2025-06-30 21:48:32,089 - modules.audio_listener - INFO - Audio listening started
+2025-06-30 21:48:32,089 - core.orchestrator - INFO - Started analysis loop with 20.0s interval
+2025-06-30 21:48:32,090 - __main__ - INFO - Audio listening and analysis started
+2025-06-30 21:48:33,997 - __main__ - INFO - Audio toggle - Active: False
+2025-06-30 21:48:34,107 - modules.audio_listener - INFO - Audio listening stopped
+2025-06-30 21:48:34,108 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:48:34,109 - __main__ - INFO - Audio listening and analysis stopped
+2025-06-30 21:48:50,277 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 21:50:50,724 - __main__ - INFO - Audio toggle - Active: True
+2025-06-30 21:50:50,788 - modules.audio_listener - INFO - Adjusting for ambient noise...
+2025-06-30 21:50:51,807 - modules.audio_listener - INFO - Audio listening started
+2025-06-30 21:50:51,808 - core.orchestrator - INFO - Started analysis loop with 20.0s interval
+2025-06-30 21:50:51,808 - __main__ - INFO - Audio listening and analysis started
+2025-06-30 21:50:51,811 - __main__ - INFO - Audio toggle - Active: False
+2025-06-30 21:50:52,813 - modules.audio_listener - INFO - Audio listening stopped
+2025-06-30 21:50:52,814 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:50:52,814 - __main__ - INFO - Audio listening and analysis stopped
+2025-06-30 21:51:56,598 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:51:56,598 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:51:56,598 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:51:56,599 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 21:52:23,545 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 21:52:23,545 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 21:52:23,545 - __main__ - INFO - Initializing application components...
+2025-06-30 21:52:23,568 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 21:52:23,568 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:52:23,569 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:52:23,569 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 21:52:23,569 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 21:52:23,569 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 21:52:23,712 - modules.screen_scanner - WARNING - Tesseract executable not found in PATH
+2025-06-30 21:52:23,713 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: False
+2025-06-30 21:52:23,735 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 21:52:23,736 - __main__ - INFO - Signal connections established
+2025-06-30 21:52:23,736 - __main__ - INFO - All components initialized successfully
+2025-06-30 21:52:23,891 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 21:52:23,891 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 21:53:44,413 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 21:53:44,413 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 21:53:44,414 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 21:53:44,414 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:02:26,127 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:02:26,127 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:02:26,127 - __main__ - INFO - Initializing application components...
+2025-06-30 22:02:26,173 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:02:26,174 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:02:26,174 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:02:26,174 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:02:26,174 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:02:26,174 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:02:26,345 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:02:26,399 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:02:26,399 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:02:26,438 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:02:26,438 - __main__ - INFO - Signal connections established
+2025-06-30 22:02:26,438 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:02:26,761 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:02:26,761 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:02:31,834 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:08:12,229 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:08:12,229 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:08:12,229 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:08:12,229 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:10:00,808 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:10:00,808 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:10:00,809 - __main__ - INFO - Initializing application components...
+2025-06-30 22:10:00,832 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:10:00,832 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:10:00,832 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:10:00,832 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:10:00,833 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:10:00,833 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:10:01,002 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:10:01,028 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:10:01,028 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:10:01,061 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:10:01,061 - __main__ - INFO - Signal connections established
+2025-06-30 22:10:01,061 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:10:01,473 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:10:01,473 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:10:38,119 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:13:46,280 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:13:46,280 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:13:46,281 - __main__ - INFO - Initializing application components...
+2025-06-30 22:13:46,302 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:13:46,302 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:13:46,303 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:13:46,303 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:13:46,303 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:13:46,303 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:13:46,462 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:13:46,490 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:13:46,491 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:13:46,523 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:13:46,523 - __main__ - INFO - Signal connections established
+2025-06-30 22:13:46,523 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:13:46,923 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:13:46,923 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:13:51,034 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:14:09,413 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:14:09,414 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:14:09,414 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:14:09,424 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:16:18,036 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:16:18,037 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:16:18,037 - __main__ - INFO - Initializing application components...
+2025-06-30 22:16:18,066 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:16:18,066 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:16:18,066 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:16:18,066 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:16:18,067 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:16:18,067 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:16:18,236 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:16:18,249 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:16:18,249 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:16:18,283 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:16:18,284 - __main__ - INFO - Signal connections established
+2025-06-30 22:16:18,284 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:16:18,697 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:16:18,697 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:17:51,919 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:18:56,574 - __main__ - INFO - Processing text prompt: Summarize what's on the screen...
+2025-06-30 22:21:18,334 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:21:18,334 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:21:18,334 - __main__ - INFO - Initializing application components...
+2025-06-30 22:21:18,356 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:21:18,356 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:21:18,357 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:21:18,357 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:21:18,357 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:21:18,357 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:21:18,549 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:21:18,562 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:21:18,563 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:21:18,590 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:21:18,591 - __main__ - INFO - Signal connections established
+2025-06-30 22:21:18,591 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:21:19,021 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:21:19,022 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:21:24,298 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:21:24,298 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:21:24,299 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:21:24,328 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:32:34,482 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:32:34,482 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:32:34,482 - __main__ - INFO - Initializing application components...
+2025-06-30 22:32:34,526 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:32:34,526 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:32:34,527 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:32:34,527 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:32:34,527 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:32:34,527 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:32:34,676 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:32:34,697 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:32:34,698 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:32:34,757 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:32:34,758 - __main__ - INFO - Signal connections established
+2025-06-30 22:32:34,758 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:32:35,170 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:32:35,170 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:32:37,294 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:32:42,689 - core.orchestrator - ERROR - Invalid analysis structure: {}
+2025-06-30 22:34:36,639 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:34:36,639 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:34:36,639 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:34:36,653 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:39:11,574 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:39:11,574 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:39:11,575 - __main__ - INFO - Initializing application components...
+2025-06-30 22:39:11,595 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:39:11,595 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:39:11,595 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:39:11,595 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:39:11,595 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:39:11,595 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:39:11,737 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:39:11,755 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:39:11,755 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:39:11,782 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:39:11,783 - __main__ - INFO - Signal connections established
+2025-06-30 22:39:11,783 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:39:11,917 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:39:11,917 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:39:20,715 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:40:05,012 - __main__ - INFO - Processing text prompt: Whats going on on my screen
+2025-06-30 22:40:08,024 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:40:08,026 - __main__ - INFO - Text prompt processed successfully
+2025-06-30 22:41:28,326 - __main__ - INFO - Processing text prompt: Extract the text from my screen
+2025-06-30 22:41:31,311 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:41:31,312 - __main__ - INFO - Text prompt processed successfully
+2025-06-30 22:42:47,090 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:42:47,090 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:42:47,091 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:42:47,106 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:42:49,574 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:42:49,574 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:42:49,574 - __main__ - INFO - Initializing application components...
+2025-06-30 22:42:49,599 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:42:49,599 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:42:49,599 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:42:49,599 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:42:49,599 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:42:49,600 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:42:49,730 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:42:49,753 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:42:49,753 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:42:49,788 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:42:49,789 - __main__ - INFO - Signal connections established
+2025-06-30 22:42:49,789 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:42:50,195 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:42:50,196 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:42:52,533 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:45:55,286 - __main__ - INFO - Processing text prompt: Extract text from the screen
+2025-06-30 22:45:58,355 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:45:58,357 - __main__ - INFO - Text prompt processed successfully
+2025-06-30 22:50:16,202 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:50:16,203 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:50:16,203 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:50:16,219 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:53:04,864 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:53:04,864 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:53:04,864 - __main__ - INFO - Initializing application components...
+2025-06-30 22:53:04,887 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:53:04,888 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:53:04,888 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:53:04,888 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:53:04,888 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:53:04,888 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:53:05,058 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:53:05,079 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:53:05,079 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:53:05,111 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:53:05,112 - __main__ - INFO - Signal connections established
+2025-06-30 22:53:05,112 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:53:05,522 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:53:05,522 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 22:53:24,313 - __main__ - INFO - OCR request received - capturing screen
+2025-06-30 22:53:38,595 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:53:55,998 - __main__ - INFO - Processing text prompt: Summarize my screen
+2025-06-30 22:54:02,014 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:54:02,018 - __main__ - INFO - Text prompt processed successfully
+2025-06-30 22:54:27,662 - __main__ - INFO - Processing text prompt: Summarize the background agents
+2025-06-30 22:54:33,926 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 22:54:33,928 - __main__ - INFO - Text prompt processed successfully
+2025-06-30 22:56:27,699 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 22:56:27,699 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 22:56:27,699 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 22:56:27,711 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 22:58:43,627 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 22:58:43,627 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 22:58:43,627 - __main__ - INFO - Initializing application components...
+2025-06-30 22:58:43,673 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 22:58:43,673 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:58:43,673 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:58:43,673 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 22:58:43,674 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 22:58:43,674 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 22:58:43,889 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 22:58:43,911 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 22:58:43,911 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 22:58:43,963 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 22:58:43,963 - __main__ - INFO - Signal connections established
+2025-06-30 22:58:43,963 - __main__ - INFO - All components initialized successfully
+2025-06-30 22:58:44,386 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 22:58:44,387 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:01:35,312 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:01:35,312 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:01:35,312 - __main__ - INFO - Initializing application components...
+2025-06-30 23:01:35,330 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:01:35,330 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:01:35,330 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:01:35,330 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:01:35,330 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:01:35,331 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:01:35,481 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:01:35,495 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:01:35,495 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:01:35,520 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:01:35,521 - __main__ - INFO - Signal connections established
+2025-06-30 23:01:35,521 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:01:35,776 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:01:35,777 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:01:42,231 - __main__ - INFO - OCR request received - checking monitoring status
+2025-06-30 23:01:42,247 - __main__ - INFO - Starting continuous screen monitoring
+2025-06-30 23:01:44,296 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:01:44,296 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-06-30 23:01:44,297 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:01:44,311 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:01:55,414 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:04:23,213 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:04:23,213 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:04:23,213 - __main__ - INFO - Initializing application components...
+2025-06-30 23:04:23,232 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:04:23,233 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:23,233 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:23,233 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:23,233 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:04:23,234 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:04:23,370 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:04:23,393 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:04:23,393 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:04:23,416 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:04:23,417 - __main__ - INFO - Signal connections established
+2025-06-30 23:04:23,417 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:04:23,614 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:04:23,614 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:04:27,890 - __main__ - INFO - OCR request received - checking monitoring status
+2025-06-30 23:04:27,904 - __main__ - INFO - Starting continuous screen monitoring
+2025-06-30 23:04:30,518 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:30,518 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-06-30 23:04:30,519 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:04:30,526 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:04:33,536 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:36,548 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:39,561 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:40,364 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:04:42,573 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:45,578 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:48,580 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:51,588 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:52,400 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:04:52,400 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:04:52,400 - __main__ - INFO - Initializing application components...
+2025-06-30 23:04:52,422 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:04:52,422 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:52,422 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:52,423 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:04:52,423 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:04:52,423 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:04:52,562 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:04:52,577 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:04:52,577 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:04:52,600 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:04:52,600 - __main__ - INFO - Signal connections established
+2025-06-30 23:04:52,600 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:04:52,855 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:04:52,855 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:04:54,600 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:04:57,612 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:00,615 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:03,626 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:06,633 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:09,646 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:12,651 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:15,663 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:18,669 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:21,684 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:24,688 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:27,704 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:30,706 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:33,722 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:36,729 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:39,746 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:42,749 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:45,766 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:48,769 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:51,778 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:54,778 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:05:57,779 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:00,786 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:03,797 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:06,805 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:09,815 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:12,816 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:15,817 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:18,821 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:21,821 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:24,827 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:27,837 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:30,839 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:33,850 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:36,852 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:39,854 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:42,858 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:45,858 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:48,479 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:06:48,479 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:06:48,479 - __main__ - INFO - Initializing application components...
+2025-06-30 23:06:48,498 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:06:48,498 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:06:48,498 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:06:48,499 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:06:48,499 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:06:48,499 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:06:48,567 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:06:48,581 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:06:48,581 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:06:48,607 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:06:48,607 - __main__ - INFO - Signal connections established
+2025-06-30 23:06:48,607 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:06:48,861 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:48,888 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:06:48,888 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:06:51,864 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:54,865 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:06:57,867 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:00,882 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:03,884 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:06,894 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:09,908 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:12,915 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:15,918 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:18,924 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:21,508 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 23:07:21,508 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 23:07:21,508 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 23:07:21,521 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 23:07:21,934 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:24,937 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:27,937 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:30,943 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:33,943 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:36,958 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:39,973 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:42,975 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:45,985 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:48,985 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:51,708 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:07:51,708 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:07:51,708 - __main__ - INFO - Initializing application components...
+2025-06-30 23:07:51,724 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:07:51,725 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:07:51,725 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:07:51,725 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:07:51,725 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:07:51,725 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:07:51,793 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:07:51,810 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:07:51,810 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:07:51,842 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:07:51,843 - __main__ - INFO - Signal connections established
+2025-06-30 23:07:51,843 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:07:51,988 - modules.screen_scanner - ERROR - Failed to capture full screen: '_thread._local' object has no attribute 'srcdc'
+2025-06-30 23:07:52,240 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:07:52,240 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:07:54,239 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 23:07:54,239 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 23:07:54,239 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 23:07:54,249 - __main__ - INFO - Dia AI Assistant shutdown complete
