@@ -281,7 +281,7 @@ Respond to the following request clearly and helpfully, keeping in mind your scr
             
             # Make request to Ollama API
             base_url = ollama_config.get('base_url', 'http://localhost:11434')
-            timeout = ollama_config.get('timeout', 10)  # Shorter timeout for direct prompts
+            timeout = ollama_config.get('timeout', 15)  # Reasonable timeout for direct prompts
             
             response = requests.post(
                 f"{base_url}/api/generate",

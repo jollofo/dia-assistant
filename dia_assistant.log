@@ -779,3 +779,750 @@
 2025-06-30 23:07:54,239 - __main__ - INFO - Shutting down Dia AI Assistant...
 2025-06-30 23:07:54,239 - core.orchestrator - INFO - Stopped analysis loop
 2025-06-30 23:07:54,249 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 23:48:00,405 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:48:00,406 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:48:00,406 - __main__ - INFO - Initializing application components...
+2025-06-30 23:48:00,469 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:48:00,469 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:48:00,469 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:48:00,469 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:48:00,470 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:48:00,471 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:48:00,692 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:48:01,369 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:48:01,369 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:48:01,433 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:48:01,433 - __main__ - INFO - Signal connections established
+2025-06-30 23:48:01,433 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:48:02,142 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:48:02,142 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:48:04,436 - __main__ - INFO - OCR request received - checking monitoring status
+2025-06-30 23:48:04,461 - __main__ - INFO - Starting continuous screen monitoring
+2025-06-30 23:48:07,406 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-06-30 23:48:15,447 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:48:15,448 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:48:19,416 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:48:32,884 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:48:37,527 - core.orchestrator - ERROR - LLM request timed out
+2025-06-30 23:48:37,654 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:48:41,443 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:48:54,413 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:48:54,421 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:49:01,857 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:49:10,287 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:49:10,961 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:49:11,036 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:49:14,296 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:49:22,447 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:49:26,531 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:49:26,539 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:49:41,108 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:49:41,114 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:49:55,541 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:49:55,590 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:49:59,484 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:50:11,653 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:50:11,656 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:50:34,590 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:50:34,590 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:50:34,590 - __main__ - INFO - Initializing application components...
+2025-06-30 23:50:34,611 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:50:34,611 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:50:34,612 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:50:34,612 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:50:34,612 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:50:34,612 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:50:34,689 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:50:34,701 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:50:34,702 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:50:34,731 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:50:34,731 - __main__ - INFO - Signal connections established
+2025-06-30 23:50:34,731 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:50:34,956 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:50:34,957 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:50:48,151 - __main__ - INFO - OCR request received - checking monitoring status
+2025-06-30 23:50:48,168 - __main__ - INFO - Starting continuous screen monitoring
+2025-06-30 23:50:50,818 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-06-30 23:50:58,876 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:50:58,877 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:51:05,115 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:51:18,834 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:51:18,838 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:51:36,218 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:51:40,882 - core.orchestrator - ERROR - LLM request timed out
+2025-06-30 23:51:40,932 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:51:42,298 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:51:48,533 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:52:00,239 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:52:00,289 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:52:07,306 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:52:22,334 - core.orchestrator - ERROR - LLM request timed out
+2025-06-30 23:52:22,336 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:52:37,893 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:52:39,986 - core.orchestrator - ERROR - Cannot connect to Ollama service
+2025-06-30 23:52:40,033 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:52:43,779 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:52:49,813 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:53:00,306 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:53:00,311 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:53:21,967 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:53:21,978 - __main__ - INFO - Overlay window closed, shutting down application
+2025-06-30 23:53:21,978 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-06-30 23:53:21,978 - core.orchestrator - INFO - Stopped analysis loop
+2025-06-30 23:53:21,987 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-06-30 23:53:39,694 - __main__ - INFO - Dia AI Assistant initialized
+2025-06-30 23:53:39,695 - __main__ - INFO - Starting Dia AI Assistant...
+2025-06-30 23:53:39,695 - __main__ - INFO - Initializing application components...
+2025-06-30 23:53:39,715 - EmailAgent - INFO - Initialized EmailAgent
+2025-06-30 23:53:39,716 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:53:39,716 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:53:39,716 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-06-30 23:53:39,716 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-06-30 23:53:39,716 - modules.audio_listener - INFO - AudioListener initialized
+2025-06-30 23:53:39,790 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-06-30 23:53:39,804 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-06-30 23:53:39,804 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-06-30 23:53:39,830 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-06-30 23:53:39,830 - __main__ - INFO - Signal connections established
+2025-06-30 23:53:39,831 - __main__ - INFO - All components initialized successfully
+2025-06-30 23:53:40,030 - __main__ - INFO - Dia AI Assistant started successfully
+2025-06-30 23:53:40,030 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-06-30 23:53:42,472 - __main__ - INFO - OCR request received - checking monitoring status
+2025-06-30 23:53:42,483 - __main__ - INFO - Starting continuous screen monitoring
+2025-06-30 23:53:44,857 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-06-30 23:53:52,641 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:53:52,641 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:53:58,381 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:54:10,340 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:54:10,344 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:54:31,539 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:54:38,483 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:54:38,484 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:54:50,428 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:54:56,374 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:55:00,089 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:55:00,105 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:55:07,501 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:55:18,795 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:55:20,410 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:55:20,414 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:55:42,434 - core.orchestrator - ERROR - LLM request timed out
+2025-06-30 23:55:42,451 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:55:45,869 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:56:01,623 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:56:01,631 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:56:18,575 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:56:18,788 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:56:18,801 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:56:23,591 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:56:36,744 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:56:36,747 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:56:57,823 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:56:57,839 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:57:16,439 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:59:26,753 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:59:26,754 - __main__ - INFO - Screen content change detected - analyzing
+2025-06-30 23:59:31,910 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-06-30 23:59:44,320 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-06-30 23:59:44,328 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:00:02,310 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:00:06,580 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:00:06,581 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:00:26,608 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:00:31,069 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:00:31,070 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:00:41,242 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:00:47,455 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:00:47,478 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:00:50,938 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:01:06,879 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:01:06,895 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:01:11,869 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:01:16,986 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:01:28,953 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 00:01:28,957 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:01:31,782 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:01:41,591 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 00:01:45,745 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:01:45,749 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:02:04,813 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 00:02:04,842 - __main__ - INFO - Screen content change detected - analyzing
+2025-07-01 00:02:10,777 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 18:48:43,809 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-01 18:48:43,809 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-01 18:48:43,809 - __main__ - INFO - Initializing application components...
+2025-07-01 18:48:43,855 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-01 18:48:43,855 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 18:48:43,855 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 18:48:43,855 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 18:48:43,855 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-01 18:48:43,855 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-01 18:48:44,926 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-01 18:48:46,126 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-01 18:48:46,126 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-01 18:48:46,166 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-01 18:48:46,166 - __main__ - INFO - Signal connections established
+2025-07-01 18:48:46,166 - __main__ - INFO - All components initialized successfully
+2025-07-01 18:48:48,751 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-01 18:48:48,751 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-01 18:49:14,709 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-01 18:49:14,724 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-01 18:49:17,104 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-01 18:49:24,679 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 18:49:24,680 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 18:49:43,516 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-01 18:49:49,058 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 18:49:49,059 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 18:49:54,422 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 18:49:54,423 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:40:17,865 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-01 22:40:17,866 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-01 22:40:17,866 - __main__ - INFO - Initializing application components...
+2025-07-01 22:40:17,963 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-01 22:40:17,963 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:40:17,966 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:40:17,966 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:40:17,966 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-01 22:40:17,966 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-01 22:40:18,897 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-01 22:40:19,968 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-01 22:40:19,968 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-01 22:40:20,037 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-01 22:40:20,037 - __main__ - INFO - Signal connections established
+2025-07-01 22:40:20,037 - __main__ - INFO - All components initialized successfully
+2025-07-01 22:40:21,013 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-01 22:40:21,013 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-01 22:40:25,541 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-01 22:40:25,565 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-01 22:40:29,473 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-01 22:40:39,580 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:40:39,581 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:40:43,945 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:40:43,945 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:40:55,064 - __main__ - INFO - Processing text prompt: What's on the screen?
+2025-07-01 22:41:01,669 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:41:05,997 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:41:17,174 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:41:17,178 - __main__ - INFO - Text prompt processed successfully
+2025-07-01 22:41:36,889 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:41:36,896 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:41:46,117 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:41:46,118 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:41:52,379 - __main__ - INFO - Processing text prompt: What's on my screen
+2025-07-01 22:41:58,975 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:42:08,181 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:42:11,087 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:42:11,088 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:42:14,430 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:42:14,432 - __main__ - INFO - Text prompt processed successfully
+2025-07-01 22:42:28,219 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:42:28,220 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:42:33,145 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:42:46,066 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:42:46,067 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:42:50,280 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:42:55,892 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:42:55,893 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:08,115 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:43:13,179 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:43:13,181 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:17,960 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:43:23,227 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:43:23,228 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:32,579 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:43:32,581 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:35,229 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:43:42,960 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:43:42,961 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:45,292 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:43:51,651 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:43:51,651 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:43:54,633 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:00,766 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:00,767 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:05,027 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:11,232 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:11,233 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:13,733 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:20,420 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:20,421 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:22,821 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:30,151 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:30,151 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:33,290 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:39,896 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:39,898 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:42,494 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:48,842 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:44:48,844 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:44:52,205 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:44:55,204 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-01 22:44:55,205 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-01 22:44:55,205 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-01 22:44:55,236 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-01 22:48:23,404 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-01 22:48:23,404 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-01 22:48:23,404 - __main__ - INFO - Initializing application components...
+2025-07-01 22:48:23,460 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-01 22:48:23,460 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:48:23,461 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:48:23,461 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 22:48:23,461 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-01 22:48:23,461 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-01 22:48:23,658 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-01 22:48:23,681 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-01 22:48:23,682 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-01 22:48:23,757 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-01 22:48:23,757 - __main__ - INFO - Signal connections established
+2025-07-01 22:48:23,758 - __main__ - INFO - All components initialized successfully
+2025-07-01 22:48:24,325 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-01 22:48:24,326 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-01 22:48:37,832 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-01 22:48:37,854 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-01 22:48:41,883 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-01 22:48:52,323 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:48:52,324 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:49:04,701 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:49:04,703 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:49:14,268 - __main__ - INFO - Processing text prompt: What's on my screen?
+2025-07-01 22:49:24,008 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:49:24,008 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:49:24,392 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:49:35,014 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:49:35,015 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:49:36,761 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:49:44,399 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:49:44,399 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:49:46,328 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:49:56,066 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:49:57,430 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:04,308 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:50:04,309 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:50:07,072 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:50:09,833 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:14,422 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:50:14,423 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:50:16,456 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:50:19,385 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:29,107 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:30,491 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:50:30,492 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:50:36,404 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:50:40,143 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:42,887 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:50:42,888 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:50:46,513 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:50:49,498 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:50:52,429 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:50:52,429 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:50:52,431 - __main__ - INFO - Text prompt processed successfully
+2025-07-01 22:51:02,158 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:51:02,158 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:51:02,226 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:51:02,226 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:51:09,470 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:51:13,210 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:51:13,210 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:51:19,566 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:51:22,545 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:51:22,546 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:51:26,296 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:51:26,297 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:51:34,265 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:51:35,244 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:51:35,245 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:51:42,559 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:51:42,560 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:51:52,627 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:51:52,627 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:51:58,351 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:51:58,755 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:51:58,756 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:52:07,326 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:52:07,326 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:52:08,116 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:52:08,117 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:52:26,841 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:52:26,842 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:52:30,809 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:52:31,400 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:52:36,675 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:52:36,676 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:52:40,196 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:52:40,382 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:52:40,383 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:52:40,384 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:52:56,669 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:52:56,670 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:52:58,901 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:53:03,894 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:53:04,452 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:53:04,452 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:53:08,725 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:53:13,281 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:53:13,453 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:53:13,453 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:53:28,740 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:53:31,982 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:53:36,957 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:53:36,957 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:53:41,812 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:53:46,327 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:53:46,328 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:54:01,820 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:54:05,042 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:54:05,042 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:54:11,591 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:11,592 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:14,856 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:54:14,857 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:54:23,495 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:23,496 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:27,409 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:27,410 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:33,449 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:33,450 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:34,899 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:54:34,900 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:54:43,655 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:54:46,492 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:46,498 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:53,494 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:53,495 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:55,543 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:54:59,144 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:54:59,145 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:54:59,453 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:05,432 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:05,433 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:05,502 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:11,442 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:11,443 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:16,705 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:18,493 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:18,494 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:18,566 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:25,339 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:25,340 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:25,530 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:28,579 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:31,226 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:32,493 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:37,483 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:38,538 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:43,517 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:46,014 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:46,015 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:49,758 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:55:49,758 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:55:50,560 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:51,617 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:52,639 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:52,641 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:55:57,424 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:55:58,587 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:55:58,865 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:55:58,866 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:01,635 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:01,636 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:03,440 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:03,441 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:04,289 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:05,535 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:05,536 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:08,289 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:08,290 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:10,540 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:11,590 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:11,591 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:14,997 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:14,998 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:16,579 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:18,106 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:23,639 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:24,676 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:24,676 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:24,722 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:28,834 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:28,835 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:30,484 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:30,949 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:31,634 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:31,634 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:34,268 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:34,269 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:35,494 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:37,356 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:37,357 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:40,330 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:43,606 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:43,607 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:46,371 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:46,372 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:47,053 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:56:49,649 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:49,649 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:51,169 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:52,629 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:52,630 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:56:56,698 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:56:56,698 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:56:57,758 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:56:58,755 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:56:58,755 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:00,890 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:03,551 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:03,551 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:03,999 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:04,851 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:04,852 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:06,325 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:08,575 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:10,402 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:10,404 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:13,397 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:16,680 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:16,682 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:18,419 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:20,113 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:24,227 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:24,228 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:24,707 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:30,804 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:30,804 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:30,819 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:33,859 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:33,859 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:33,957 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:36,901 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:37,039 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:37,040 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:39,370 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:40,338 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:40,338 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:41,638 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:41,638 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:42,457 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:46,455 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:46,456 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:46,939 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:57:46,940 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:57:48,734 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:57:51,479 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:57:53,183 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:57:53,184 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:57:57,766 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:00,213 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:00,214 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:03,880 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:05,928 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:07,002 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:07,002 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:07,025 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:07,026 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:09,974 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:12,411 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:12,428 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:12,429 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:13,611 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:13,611 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:15,532 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:19,003 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:19,470 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:19,471 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:21,794 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:24,530 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:24,531 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:30,800 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:30,801 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:32,272 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:34,970 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:34,971 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:36,951 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:36,951 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:38,973 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:39,080 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:43,036 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:43,037 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:44,019 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:44,020 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:45,458 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:45,661 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:48,585 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:48,586 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:58:51,521 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:58:52,048 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:58:53,373 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:58:53,374 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:58:54,857 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:58:54,857 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:03,255 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:59:03,256 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:59:05,316 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:07,020 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:12,051 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:12,052 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:12,128 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:14,091 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:59:14,092 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:59:16,084 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:18,538 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:18,539 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:18,740 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:24,579 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:25,120 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:25,121 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:25,460 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:25,480 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:59:25,480 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:59:35,311 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:38,356 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:38,357 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:40,076 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:45,128 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:59:45,128 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:59:45,200 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:45,201 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:46,150 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:49,131 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 22:59:51,813 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:51,814 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:53,671 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 22:59:53,672 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 22:59:57,527 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 22:59:57,634 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 22:59:57,635 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 22:59:58,514 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:00:03,427 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:00:03,428 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:00:08,371 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:00:13,129 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:00:13,130 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:00:13,410 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:00:13,411 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:00:17,179 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:00:19,206 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:00:22,187 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:00:22,187 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:00:23,545 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:00:23,545 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:00:25,738 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:00:30,584 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:00:31,594 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:00:31,595 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:00:34,262 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:00:34,264 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:00:35,474 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:00:41,420 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:00:41,420 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:00:45,477 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:00:49,462 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:00:49,463 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:00:50,235 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:00:52,254 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:00:52,255 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:00:55,617 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:00:58,794 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:01:03,625 - core.orchestrator - ERROR - Direct prompt timed out after 3 attempts
+2025-07-01 23:01:03,625 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:01:06,316 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 1/3)
+2025-07-01 23:01:08,544 - core.orchestrator - WARNING - Direct prompt timed out, retrying in 1s (attempt 2/3)
+2025-07-01 23:01:10,379 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-01 23:01:10,380 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-01 23:01:10,380 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-01 23:01:10,432 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-01 23:02:55,445 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-01 23:02:55,446 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-01 23:02:55,446 - __main__ - INFO - Initializing application components...
+2025-07-01 23:02:55,504 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-01 23:02:55,505 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:02:55,505 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:02:55,505 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:02:55,506 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-01 23:02:55,506 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-01 23:02:55,696 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-01 23:02:55,720 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-01 23:02:55,720 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-01 23:02:55,776 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-01 23:02:55,776 - __main__ - INFO - Signal connections established
+2025-07-01 23:02:55,777 - __main__ - INFO - All components initialized successfully
+2025-07-01 23:02:56,379 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-01 23:02:56,379 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-01 23:03:30,476 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-01 23:03:30,476 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-01 23:03:30,476 - __main__ - INFO - Initializing application components...
+2025-07-01 23:03:30,501 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-01 23:03:30,501 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:03:30,502 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:03:30,502 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-01 23:03:30,502 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-01 23:03:30,502 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-01 23:03:30,605 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-01 23:03:30,624 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-01 23:03:30,625 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-01 23:03:30,671 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-01 23:03:30,671 - __main__ - INFO - Signal connections established
+2025-07-01 23:03:30,671 - __main__ - INFO - All components initialized successfully
+2025-07-01 23:03:31,232 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-01 23:03:31,233 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-01 23:03:34,922 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-01 23:03:34,942 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-01 23:03:38,895 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-01 23:03:52,378 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-01 23:03:52,378 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-01 23:04:09,058 - __main__ - INFO - Processing text prompt: What's on my screen
+2025-07-01 23:04:14,447 - core.orchestrator - ERROR - LLM request timed out
+2025-07-01 23:04:19,887 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-01 23:04:19,888 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-01 23:04:19,888 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-01 23:04:19,922 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 11:32:05,869 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 11:32:05,870 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 11:32:05,870 - __main__ - INFO - Initializing application components...
+2025-07-02 11:32:05,936 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 11:32:05,937 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 11:32:05,937 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 11:32:05,937 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 11:32:05,938 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 11:32:05,938 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 11:32:06,530 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 11:32:07,719 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 11:32:07,720 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-02 11:32:07,839 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 11:32:07,840 - __main__ - INFO - Signal connections established
+2025-07-02 11:32:07,841 - __main__ - INFO - All components initialized successfully
+2025-07-02 11:32:10,696 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 11:32:10,696 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 11:32:21,979 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 11:32:21,996 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 11:32:24,135 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-02 11:32:26,020 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:32:26,023 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:32:30,975 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:32:30,976 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:32:36,190 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:32:36,192 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:32:41,145 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:32:41,146 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:32:48,094 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:32:51,018 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:32:51,019 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:32:53,015 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:32:55,591 - __main__ - INFO - Processing text prompt: What's on my screen
+2025-07-02 11:32:58,250 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:33:03,172 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:33:09,827 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:33:09,827 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:33:13,048 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:33:13,723 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:33:13,724 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:33:17,556 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:33:17,557 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 11:33:17,622 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 11:33:17,626 - __main__ - INFO - Text prompt processed successfully
+2025-07-02 11:33:29,069 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 11:33:29,070 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 11:33:29,070 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 11:33:29,105 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 11:33:29,166 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 11:33:29,167 - modules.screen_scanner - ERROR - Error in change callback: wrapped C/C++ object of type DiaAssistant has been deleted
