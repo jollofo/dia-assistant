@@ -164,4 +164,55 @@ The codebase is designed for easy extension:
 
 ---
 
+## Latest Updates
+
+### 2024-12-19: Intelligent Screen Change Detection System
+**Problem**: The screen scanner was detecting changes too frequently, triggering notifications even for minor changes like cursor blinks, loading animations, or small UI updates.
+
+**Solution**: Implemented a multi-layered intelligent change detection system:
+
+#### Key Improvements:
+1. **Visual Hash Pre-filtering**: Uses perceptual hashing to quickly detect visual changes before performing expensive OCR
+2. **Smart Text Cleaning**: Filters out common UI noise patterns (timestamps, progress indicators, loading animations)
+3. **Multi-metric Analysis**: Combines text similarity, structural similarity, and semantic change detection
+4. **Change Classification**: Distinguishes between major changes (tab switches, navigation) and minor updates
+5. **Spam Prevention**: Enforces minimum intervals between major change notifications
+6. **Historical Analysis**: Tracks change patterns to improve detection accuracy
+7. **Confidence Filtering**: Only shows changes with confidence ≥ 0.5 (configurable)
+8. **Clean Output**: Removed confidence levels from user-facing notifications
+9. **Content Formatting**: Automatically formats screen content with proper headings, lists, and paragraphs
+
+#### Content Formatting Features:
+- **Remove Technical Markers**: Eliminates change type information and confidence scores
+- **Clean Formatting**: Removes asterisks (*), underscores (_), and hash symbols (#) 
+- **Smart Headings**: Detects and formats titles as proper headings (## Title)
+- **List Detection**: Converts various list formats (*, 1., -, etc.) to clean bullet points (•)
+- **Paragraph Structure**: Groups related content into well-formatted paragraphs
+- **Proper Capitalization**: Ensures sentences and headings are properly capitalized
+- **Noise Removal**: Filters out very short lines and OCR artifacts
+
+#### Configuration Options:
+- `interval_seconds`: Increased from 3 to 5 seconds for less frequent scanning
+- `min_change_chars`: Increased from 50 to 100 characters minimum
+- `similarity_threshold`: 0.85 - text must be <85% similar to trigger
+- `visual_change_threshold`: 0.2 - visual similarity threshold for pre-filtering
+- `major_change_threshold`: 0.4 - threshold for classifying major vs minor changes
+- `confidence_threshold`: 0.5 - minimum confidence required to show change (user configurable)
+
+#### Benefits:
+- **Reduced False Positives**: Ignores minor UI animations and OCR noise
+- **Better Performance**: Visual pre-filtering reduces unnecessary OCR operations
+- **Context-Aware**: Understands the difference between navigation and content updates
+- **Configurable Sensitivity**: Users can adjust thresholds based on their needs
+- **Clean Interface**: No technical confidence scores in user notifications
+
+#### Change Types Detected:
+- `major_content_change`: Significant text/content differences
+- `layout_change`: Page structure or formatting changes
+- `semantic_change`: Navigation, errors, form submissions, etc.
+- `content_update`: Moderate content changes
+- `minor_change`: Small updates (usually filtered out)
+
+**Result**: The AI now only notifies about meaningful changes like switching tabs, navigating to new pages, or significant content updates, while ignoring minor UI elements and noise. Only changes with high confidence (≥50%) are shown, and technical details are hidden from the user.
+
 **Project Status**: 🎉 **COMPLETE AND READY FOR USE** 🎉 

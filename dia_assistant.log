@@ -1526,3 +1526,502 @@
 2025-07-02 11:33:29,105 - __main__ - INFO - Dia AI Assistant shutdown complete
 2025-07-02 11:33:29,166 - modules.screen_scanner - INFO - Significant screen content change detected
 2025-07-02 11:33:29,167 - modules.screen_scanner - ERROR - Error in change callback: wrapped C/C++ object of type DiaAssistant has been deleted
+2025-07-02 21:30:34,024 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 21:30:34,024 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 21:30:34,025 - __main__ - INFO - Initializing application components...
+2025-07-02 21:30:34,086 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 21:30:34,087 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:30:34,087 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:30:34,087 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:30:34,087 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 21:30:34,087 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 21:30:35,090 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 21:30:36,186 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 21:30:36,187 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-02 21:30:36,265 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 21:30:36,265 - __main__ - INFO - Signal connections established
+2025-07-02 21:30:36,266 - __main__ - INFO - All components initialized successfully
+2025-07-02 21:30:37,655 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 21:30:37,656 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 21:31:09,354 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 21:31:09,374 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 21:31:11,517 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-02 21:31:18,410 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:31:18,411 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:31:37,138 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:31:53,985 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:31:53,986 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:31:59,320 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:31:59,321 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:05,265 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:05,266 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:07,656 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:32:15,209 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:32:18,074 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:32:22,373 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:22,374 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:28,022 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:28,023 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:33,784 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:33,785 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:35,834 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:32:39,711 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:39,712 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:42,630 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:32:45,615 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:32:45,616 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:32:46,202 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 21:32:46,202 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 21:32:46,203 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 21:32:46,221 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 21:33:29,247 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 21:33:29,247 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 21:33:29,247 - __main__ - INFO - Initializing application components...
+2025-07-02 21:33:29,273 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 21:33:29,274 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:33:29,274 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:33:29,274 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:33:29,274 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 21:33:29,275 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 21:33:29,362 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 21:33:29,383 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 21:33:29,384 - modules.screen_scanner - INFO - ScreenScanner initialized - Tesseract available: True
+2025-07-02 21:33:29,419 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 21:33:29,419 - __main__ - INFO - Signal connections established
+2025-07-02 21:33:29,419 - __main__ - INFO - All components initialized successfully
+2025-07-02 21:33:29,877 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 21:33:29,877 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 21:33:34,102 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 21:33:34,124 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 21:33:36,181 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 3s)
+2025-07-02 21:33:42,778 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:33:42,780 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:33:53,605 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:33:57,312 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:33:57,313 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:07,137 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:07,138 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:07,918 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:12,245 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:12,245 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:21,743 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:24,217 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:27,479 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:27,480 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:32,187 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:32,189 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:37,352 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:37,353 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:40,810 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:42,092 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:42,095 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:34:44,565 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:53,966 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:57,024 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:34:57,343 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:34:57,344 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:35:07,221 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:35:07,222 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:35:09,975 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:35:17,001 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:35:17,001 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:35:17,577 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:35:22,180 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:35:22,181 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:35:27,028 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:35:34,741 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:35:38,166 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:35:38,167 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:35:50,030 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:35:53,643 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:35:53,644 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:36:06,454 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:36:44,445 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:36:44,445 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:36:55,192 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:36:55,192 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:36:56,173 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:00,704 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:00,705 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:06,337 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:06,339 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:10,927 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:12,458 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:12,459 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:16,642 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:18,259 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:18,260 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:24,269 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:24,271 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:26,085 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:30,368 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:30,369 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:32,440 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:40,228 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:46,331 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 21:37:48,183 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:48,185 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:37:52,041 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:37:54,424 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:37:54,425 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:00,674 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:00,675 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:01,893 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:06,545 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:06,546 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:12,070 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:15,797 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:23,086 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:24,028 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:24,029 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:29,604 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:29,605 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:36,082 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:36,083 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:38,253 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:42,310 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:42,310 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:46,943 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:48,567 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:48,567 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:52,279 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:38:54,713 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:38:54,714 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:38:57,900 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:39:03,649 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:39:06,399 - modules.screen_scanner - INFO - Significant screen content change detected
+2025-07-02 21:39:06,399 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:39:09,556 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:39:10,825 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 21:39:10,826 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 21:39:10,826 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 21:39:10,842 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 21:42:56,667 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 21:42:56,667 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 21:42:56,668 - __main__ - INFO - Initializing application components...
+2025-07-02 21:42:56,726 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 21:42:56,727 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:42:56,727 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:42:56,727 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:42:56,727 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 21:42:56,727 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 21:42:56,831 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 21:42:56,864 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 21:42:56,864 - modules.screen_scanner - INFO - ScreenScanner initialized with intelligent change detection - Tesseract available: True
+2025-07-02 21:42:56,916 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 21:42:56,917 - __main__ - INFO - Signal connections established
+2025-07-02 21:42:56,917 - __main__ - INFO - All components initialized successfully
+2025-07-02 21:42:57,337 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 21:42:57,337 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 21:43:39,001 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 21:43:39,036 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 21:43:40,987 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 5s)
+2025-07-02 21:45:01,185 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.97)
+2025-07-02 21:45:01,186 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:07,228 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.15)
+2025-07-02 21:45:07,229 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:15,424 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:45:18,240 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.24)
+2025-07-02 21:45:18,240 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:19,034 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:45:24,187 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.15)
+2025-07-02 21:45:24,188 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:28,598 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:45:30,062 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.14)
+2025-07-02 21:45:30,063 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:36,874 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:45:43,209 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:45:52,027 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.16)
+2025-07-02 21:45:52,029 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:45:57,957 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.17)
+2025-07-02 21:45:57,959 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:03,580 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:04,026 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.50)
+2025-07-02 21:46:04,027 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:10,170 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.57)
+2025-07-02 21:46:10,171 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:10,341 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:16,259 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.53)
+2025-07-02 21:46:16,260 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:18,909 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:22,231 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.17)
+2025-07-02 21:46:22,232 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:23,020 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:28,185 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.25)
+2025-07-02 21:46:28,186 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:29,125 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:34,123 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.23)
+2025-07-02 21:46:34,124 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:36,421 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:39,483 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:45,097 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.22)
+2025-07-02 21:46:45,098 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:46:45,753 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:46:56,228 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:11,950 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.21)
+2025-07-02 21:48:11,951 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:17,880 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.27)
+2025-07-02 21:48:17,881 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:23,913 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:25,756 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.91)
+2025-07-02 21:48:25,757 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:33,204 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:34,268 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.84)
+2025-07-02 21:48:34,268 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:37,387 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:43,087 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.19)
+2025-07-02 21:48:43,088 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:47,183 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:51,114 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.19)
+2025-07-02 21:48:51,114 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:48:56,292 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:48:59,262 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.77)
+2025-07-02 21:48:59,263 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:02,987 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:07,274 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.76)
+2025-07-02 21:49:07,275 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:13,345 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:15,336 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.84)
+2025-07-02 21:49:15,336 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:22,293 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:28,386 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.26)
+2025-07-02 21:49:28,387 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:28,427 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:36,374 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.12)
+2025-07-02 21:49:36,375 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:41,535 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:44,491 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.83)
+2025-07-02 21:49:44,492 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:49,787 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:49:52,826 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.07)
+2025-07-02 21:49:52,827 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:49:57,846 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:00,791 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.83)
+2025-07-02 21:50:00,792 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:09,314 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.81)
+2025-07-02 21:50:09,314 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:14,863 - core.orchestrator - ERROR - LLM request timed out
+2025-07-02 21:50:15,932 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:17,268 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.82)
+2025-07-02 21:50:17,269 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:25,504 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.48)
+2025-07-02 21:50:25,505 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:26,896 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:33,786 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.39)
+2025-07-02 21:50:33,786 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:33,796 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:41,406 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:42,049 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.12)
+2025-07-02 21:50:42,050 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:47,270 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:50,088 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.79)
+2025-07-02 21:50:50,089 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:50:53,942 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:50:57,853 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.21)
+2025-07-02 21:50:57,854 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:04,205 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:06,198 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.18)
+2025-07-02 21:51:06,199 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:11,172 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:14,289 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.82)
+2025-07-02 21:51:14,289 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:20,401 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:22,454 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.79)
+2025-07-02 21:51:22,455 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:26,703 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:30,759 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.15)
+2025-07-02 21:51:30,759 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:35,748 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:42,628 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:51:43,804 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.75)
+2025-07-02 21:51:43,805 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:49,784 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.98)
+2025-07-02 21:51:49,784 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:55,713 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.72)
+2025-07-02 21:51:55,714 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:51:58,281 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:02,250 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.96)
+2025-07-02 21:52:02,252 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:03,071 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:08,410 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.38)
+2025-07-02 21:52:08,411 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:10,987 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:14,583 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.96)
+2025-07-02 21:52:14,584 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:16,998 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:21,643 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.97)
+2025-07-02 21:52:21,644 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:25,236 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:28,848 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.59)
+2025-07-02 21:52:28,849 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:29,121 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:36,915 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change (confidence: 0.97)
+2025-07-02 21:52:36,916 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:37,822 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:44,928 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.68)
+2025-07-02 21:52:44,930 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:52:46,300 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:52,733 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:52:53,001 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.20)
+2025-07-02 21:52:53,002 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:00,185 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:00,865 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.38)
+2025-07-02 21:53:00,866 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:06,139 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:08,643 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.24)
+2025-07-02 21:53:08,644 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:15,111 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:16,535 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.33)
+2025-07-02 21:53:16,537 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:22,647 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:24,574 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.67)
+2025-07-02 21:53:24,575 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:32,572 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:37,609 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:37,627 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.31)
+2025-07-02 21:53:37,628 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:45,389 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.76)
+2025-07-02 21:53:45,390 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:51,298 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:53:53,350 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.72)
+2025-07-02 21:53:53,351 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:53:59,658 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:54:01,166 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.78)
+2025-07-02 21:54:01,166 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:54:06,560 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:54:09,015 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.16)
+2025-07-02 21:54:09,016 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:54:14,249 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:54:16,942 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.42)
+2025-07-02 21:54:16,943 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:54:23,515 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:54:25,140 - modules.screen_scanner - INFO - Significant screen change detected: content_update (confidence: 0.26)
+2025-07-02 21:54:25,140 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:54:32,139 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:54:33,161 - modules.screen_scanner - INFO - Significant screen change detected: layout_change (confidence: 0.61)
+2025-07-02 21:54:33,162 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:54:38,426 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 21:54:38,426 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 21:54:38,427 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 21:54:38,446 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 21:57:24,390 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 21:57:24,390 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 21:57:24,390 - __main__ - INFO - Initializing application components...
+2025-07-02 21:57:24,432 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 21:57:24,432 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:57:24,432 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:57:24,432 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 21:57:24,432 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 21:57:24,432 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 21:57:24,497 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 21:57:24,516 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 21:57:24,516 - modules.screen_scanner - INFO - ScreenScanner initialized with intelligent change detection - Tesseract available: True
+2025-07-02 21:57:24,544 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 21:57:24,544 - __main__ - INFO - Signal connections established
+2025-07-02 21:57:24,544 - __main__ - INFO - All components initialized successfully
+2025-07-02 21:57:24,955 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 21:57:24,955 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 21:57:29,899 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 21:57:29,918 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 21:57:31,896 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 5s)
+2025-07-02 21:57:45,721 - modules.screen_scanner - INFO - Significant screen change detected: content_update
+2025-07-02 21:57:45,721 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:57:56,717 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:57:59,760 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 21:57:59,761 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:58:06,829 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 21:58:06,830 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:58:10,210 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:58:16,885 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:59:01,904 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 21:59:01,905 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:59:09,488 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 21:59:09,488 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:59:12,051 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:59:20,296 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 21:59:41,270 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 21:59:41,271 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:59:49,434 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 21:59:49,435 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 21:59:53,970 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:00:04,432 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:00:28,355 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 22:00:28,356 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:00:36,374 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 22:00:36,375 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:00:41,868 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:00:44,110 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 22:00:44,110 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:00:50,815 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:00:52,068 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 22:00:52,068 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:00:58,180 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:01:03,530 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:01:38,622 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 22:01:38,623 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:01:45,959 - modules.screen_scanner - INFO - Significant screen change detected: layout_change
+2025-07-02 22:01:45,960 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:01:50,823 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:01:53,065 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 22:01:53,065 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 22:01:53,065 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 22:01:53,085 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 22:04:41,338 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 22:04:41,339 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 22:04:41,339 - __main__ - INFO - Initializing application components...
+2025-07-02 22:04:41,362 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 22:04:41,362 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:04:41,362 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:04:41,362 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:04:41,363 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 22:04:41,363 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 22:04:41,427 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 22:04:41,444 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 22:04:41,444 - modules.screen_scanner - INFO - ScreenScanner initialized with intelligent change detection - Tesseract available: True
+2025-07-02 22:04:41,479 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 22:04:41,480 - __main__ - INFO - Signal connections established
+2025-07-02 22:04:41,480 - __main__ - INFO - All components initialized successfully
+2025-07-02 22:04:41,906 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 22:04:41,906 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 22:04:55,834 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 22:04:55,869 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 22:04:57,752 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 5s)
+2025-07-02 22:05:23,903 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 22:05:23,905 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:05:35,487 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:05:36,783 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 22:05:36,785 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:05:47,062 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:07:18,159 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 22:07:18,160 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 22:07:18,161 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 22:07:18,176 - __main__ - INFO - Dia AI Assistant shutdown complete
+2025-07-02 22:07:57,747 - __main__ - INFO - Dia AI Assistant initialized
+2025-07-02 22:07:57,747 - __main__ - INFO - Starting Dia AI Assistant...
+2025-07-02 22:07:57,747 - __main__ - INFO - Initializing application components...
+2025-07-02 22:07:57,773 - EmailAgent - INFO - Initialized EmailAgent
+2025-07-02 22:07:57,773 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:07:57,773 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:07:57,773 - KnowledgeAgent - INFO - Initialized KnowledgeAgent
+2025-07-02 22:07:57,774 - core.agent_manager - INFO - Initialized AgentManager with 4 agents
+2025-07-02 22:07:57,774 - modules.audio_listener - INFO - AudioListener initialized
+2025-07-02 22:07:57,862 - modules.screen_scanner - INFO - Tesseract path configured: C:\Program Files\Tesseract-OCR\tesseract.exe
+2025-07-02 22:07:57,880 - modules.screen_scanner - INFO - Tesseract found: 5.5.0.20241111
+2025-07-02 22:07:57,881 - modules.screen_scanner - INFO - ScreenScanner initialized with intelligent change detection - Tesseract available: True
+2025-07-02 22:07:57,916 - ui.overlay - INFO - Minimalistic OverlayWindow initialized
+2025-07-02 22:07:57,916 - __main__ - INFO - Signal connections established
+2025-07-02 22:07:57,916 - __main__ - INFO - All components initialized successfully
+2025-07-02 22:07:58,339 - __main__ - INFO - Dia AI Assistant started successfully
+2025-07-02 22:07:58,340 - __main__ - INFO - Use eye for screen analysis, mic for audio, or type prompts
+2025-07-02 22:08:08,600 - __main__ - INFO - OCR request received - checking monitoring status
+2025-07-02 22:08:08,632 - __main__ - INFO - Starting continuous screen monitoring
+2025-07-02 22:08:10,009 - modules.screen_scanner - INFO - Started continuous screen monitoring (interval: 5s)
+2025-07-02 22:08:11,527 - modules.screen_scanner - INFO - Significant screen change detected: major_content_change
+2025-07-02 22:08:11,528 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:08:23,077 - core.orchestrator - INFO - Direct prompt processed successfully
+2025-07-02 22:08:58,204 - modules.screen_scanner - INFO - Significant screen change detected: content_update
+2025-07-02 22:08:58,206 - __main__ - INFO - Screen content change detected, starting background analysis.
+2025-07-02 22:09:07,679 - __main__ - INFO - Overlay window closed, shutting down application
+2025-07-02 22:09:07,681 - __main__ - INFO - Shutting down Dia AI Assistant...
+2025-07-02 22:09:07,681 - core.orchestrator - INFO - Stopped analysis loop
+2025-07-02 22:09:07,695 - __main__ - INFO - Dia AI Assistant shutdown complete

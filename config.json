@@ -28,8 +28,12 @@
         "timeout_seconds": 10
     },
     "screen_monitoring": {
-        "interval_seconds": 3,
-        "min_change_chars": 50
+        "interval_seconds": 5,
+        "min_change_chars": 100,
+        "similarity_threshold": 0.85,
+        "visual_change_threshold": 0.2,
+        "major_change_threshold": 0.4,
+        "confidence_threshold": 0.5
     },
     "performance": {
         "ui_update_delay": 100,
