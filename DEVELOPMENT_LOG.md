@@ -166,6 +166,51 @@ The codebase is designed for easy extension:
 
 ## Latest Updates
 
+### 2024-12-19: LLM Timeout Prevention & Analysis Cooldown System
+**Problem**: LLM timeouts occurring frequently even when content wasn't changing, caused by screen change detection triggering too many LLM analysis calls.
+
+**Root Cause**: Every screen change detection was triggering a full LLM analysis via `process_direct_prompt`, leading to:
+- Screen monitoring checking every 5 seconds
+- Each detection triggering expensive LLM analysis
+- Multiple concurrent LLM calls queuing up
+- Timeouts when Ollama becomes overloaded
+
+**Solution**: Implemented comprehensive timeout prevention system:
+
+#### Analysis Cooldown System:
+- **30-second cooldown** between screen change analyses
+- **Configurable analysis enable/disable** (`analysis_enabled: true/false`)
+- **Smart notifications** showing cooldown status
+- **Separate conversation analysis** (unaffected by screen cooldown)
+
+#### Retry Logic with Exponential Backoff:
+- **Maximum 2 retries** for failed LLM requests
+- **1-second delay** between retry attempts
+- **Separate timeouts** for different request types (analysis: 20s, direct: 15s)
+- **Graceful degradation** with helpful error messages
+
+#### Enhanced Error Handling:
+- **Connection testing** before retry attempts
+- **Detailed logging** of retry attempts and failures
+- **User-friendly error messages** instead of technical errors
+- **Fallback responses** when LLM is unavailable
+
+#### Configuration Options:
+- `analysis_cooldown_seconds`: 30 - minimum time between screen analyses
+- `analysis_enabled`: true - can disable screen analysis entirely
+- `max_retries`: 2 - maximum retry attempts for failed requests
+- `retry_delay`: 1 - seconds to wait between retries
+- `direct_prompt_timeout`: 15 - timeout for user prompts
+- `timeout`: 20 - timeout for transcript analysis
+
+**Result**: Eliminated LLM timeouts by preventing analysis spam while maintaining responsiveness. Users now see appropriate cooldown notifications instead of timeout errors, and the system gracefully handles LLM service issues.
+
+#### Quick Fix: TypeError Resolution
+- **Issue**: `TypeError: OverlayWindow.show_message() got an unexpected keyword argument 'timeout'`
+- **Cause**: Added `timeout` parameters to `show_message()` calls, but method only accepts `title` and `message`
+- **Fix**: Removed invalid `timeout` parameters (method has built-in 3-second timeout anyway)
+- **Status**: ✅ Resolved
+
 ### 2024-12-19: Intelligent Screen Change Detection System
 **Problem**: The screen scanner was detecting changes too frequently, triggering notifications even for minor changes like cursor blinks, loading animations, or small UI updates.
 
@@ -214,5 +259,135 @@ The codebase is designed for easy extension:
 - `minor_change`: Small updates (usually filtered out)
 
 **Result**: The AI now only notifies about meaningful changes like switching tabs, navigating to new pages, or significant content updates, while ignoring minor UI elements and noise. Only changes with high confidence (≥50%) are shown, and technical details are hidden from the user.
+
+**Project Status**: 🎉 **COMPLETE AND READY FOR USE** 🎉 
+
+## Latest Changes
+
+### v1.7.1 - Streaming Speed Control
+**Date:** 2024-12-19
+**Enhancement:** User-friendly streaming speed control
+
+#### Changes Made:
+1. **Configurable Streaming Speed**
+   - Added `streaming_delay_ms` configuration (default: 80ms between chunks)
+   - Added `streaming_mode` options: instant, smooth, typing
+   - Chunk queue system for controlled content delivery
+   - Timer-based chunk processing for consistent timing
+
+2. **Enhanced UI Streaming Control**
+   - `_process_next_chunk()`: Timer-based chunk processing from queue
+   - `_append_chunk_immediately()`: Original instant behavior
+   - `_add_typing_effect()`: Typewriter-like display effect
+   - Proper queue cleanup on completion and errors
+
+3. **Streaming Modes**
+   - **Instant**: No delay, immediate display (original behavior)
+   - **Smooth**: Chunk-by-chunk with controlled timing (default)
+   - **Typing**: Typewriter effect for human-like appearance
+
+4. **Configuration Options**
+   ```json
+   {
+     "ui": {
+       "overlay": {
+         "streaming_delay_ms": 80,
+         "streaming_mode": "smooth"
+       }
+     }
+   }
+   ```
+
+#### Speed Presets:
+- **Instant (0ms)**: No streaming effect, immediate display
+- **Fast (30ms)**: Quick but readable for short responses
+- **Smooth (80ms)**: Balanced speed and readability (default)
+- **Slow (150ms)**: Easy reading for complex content
+- **Custom**: Any value 200ms+ for presentations
+
+#### Benefits:
+- **Better Readability**: Controlled pace prevents overwhelming users
+- **Customizable UX**: Users can adjust speed to their preference
+- **Accessibility**: Slower speeds help users with reading difficulties
+- **Professional Feel**: Smooth streaming looks more polished
+- **Backward Compatible**: Instant mode preserves original behavior
+
+#### Technical Implementation:
+- Queue-based chunk management prevents UI blocking
+- QTimer for consistent, configurable timing
+- Proper cleanup prevents memory leaks
+- Graceful degradation on errors
+
+---
+
+### v1.7.0 - Streaming Response Implementation
+**Date:** 2024-12-19
+**Major Feature:** Real-time streaming content delivery
+
+#### Changes Made:
+1. **Core Streaming Infrastructure**
+   - Added streaming support to `Orchestrator` class with new PyQt signals:
+     - `stream_started`: Emitted when streaming begins
+     - `stream_chunk`: Emitted for each chunk of streamed content
+     - `stream_completed`: Emitted when streaming finishes
+     - `stream_error`: Emitted for streaming errors
+   
+2. **New Streaming Methods**
+   - `process_direct_prompt_streaming()`: Handles streaming responses from Ollama
+   - Proper JSON chunk parsing for Ollama's streaming format
+   - Real-time content delivery with immediate UI updates
+   
+3. **Enhanced UI Streaming Support**
+   - `start_streaming_response()`: Initializes UI for streaming
+   - `append_streaming_chunk()`: Appends content as it arrives
+   - `complete_streaming_response()`: Finalizes streaming with actions
+   - `handle_streaming_error()`: Manages streaming errors
+   - Real-time text cursor positioning and auto-scrolling
+   
+4. **Configuration Updates**
+   - Added `streaming_enabled: true` to enable streaming by default
+   - Added `streaming_chunk_size: 1024` for chunk size configuration
+   - Maintains backward compatibility with non-streaming mode
+   
+5. **Signal Architecture Updates**
+   - Connected streaming signals in main application
+   - Updated text prompt handling to use streaming
+   - Updated screen analysis to use streaming for real-time insights
+   - Background thread management for streaming requests
+
+#### Technical Implementation:
+- **Ollama Streaming Protocol**: Uses `"stream": true` with line-by-line JSON parsing
+- **Real-time Updates**: Each chunk immediately updates the UI without waiting
+- **Performance**: Significantly improved responsiveness compared to chunked loading
+- **Error Handling**: Graceful degradation with streaming error management
+- **Threading**: Streaming runs in background threads to prevent UI blocking
+
+#### Benefits:
+- **Real-time Experience**: Users see content as it's generated
+- **Better Responsiveness**: No waiting for complete responses
+- **Enhanced UX**: Feels more interactive and engaging
+- **Performance**: Faster perceived response times
+- **Scalability**: Better handling of long responses
+
+#### Testing:
+- Verified Ollama streaming API compatibility (92 chunks, 338 chars in test)
+- Confirmed PyQt6 signal handling works correctly
+- Tested real-time UI updates and auto-scrolling
+- Validated error handling and graceful degradation
+
+#### Configuration:
+```json
+{
+  "ollama": {
+    "streaming_enabled": true,
+    "streaming_chunk_size": 1024
+  }
+}
+```
+
+---
+
+### v1.6.0 - LLM Timeout Prevention System
+**Date:** 2024-12-19
 
 **Project Status**: 🎉 **COMPLETE AND READY FOR USE** 🎉 

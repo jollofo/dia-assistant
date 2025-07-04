@@ -6,6 +6,7 @@ Minimalistic overlay window with essential AI assistant features.
 import sys
 import logging
 import time
+from datetime import datetime
 from typing import Dict, Any, List
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
@@ -38,6 +39,17 @@ class OverlayWindow(QWidget):
         # Toggle state tracking
         self.is_audio_active = False
         self.is_eye_active = False
+        
+        # Streaming control attributes
+        self.streaming_chunk_queue = []
+        self.streaming_timer = QTimer()
+        self.streaming_timer.timeout.connect(self._process_next_chunk)
+        self.is_streaming = False
+        
+        # Get streaming configuration
+        ui_config = config.get('ui', {}).get('overlay', {})
+        self.streaming_delay = ui_config.get('streaming_delay_ms', 80)  # Default 80ms between chunks
+        self.streaming_mode = ui_config.get('streaming_mode', 'smooth')  # smooth, fast, typing
         
         # UI components
         self.eye_button = None
@@ -187,10 +199,16 @@ class OverlayWindow(QWidget):
         
         QTextEdit#output_area {
             background-color: rgba(35, 35, 35, 200);
-            border: 1px solid rgba(70, 70, 70, 100);
+            border: 1px solid rgba(80, 80, 80, 150);
             border-radius: 4px;
-            padding: 4px;
+            padding: 6px;
+            color: white;
             font-size: 10px;
+            line-height: 1.4;
+        }
+        
+        QTextEdit#output_area:focus {
+            border: 1px solid rgba(33, 150, 243, 100);
         }
         
         /* Simple, minimal scroll bar styling */
@@ -285,39 +303,96 @@ class OverlayWindow(QWidget):
         ))
         
     def _handle_text_submit(self):
-        """Handle text submission with immediate feedback."""
-        prompt = self.text_input.text().strip()
-        if prompt:
-            self.status_label.setText("🤔 Processing...")
-            self.status_label.setStyleSheet("color: #42A5F5;")
-            self.text_input.clear()
-            QApplication.processEvents()  # Force immediate update
-            self.text_prompt_submitted.emit(prompt)
+        """Handle text input submission with special commands."""
+        text = self.text_input.text().strip()
+        if text:
+            # Check for special commands
+            if text.lower() in ['/clear', '/c']:
+                self.clear_chat_history()
+                self.text_input.clear()
+                return
+            elif text.lower() in ['/help', '/h']:
+                self._show_help_message()
+                self.text_input.clear()
+                return
+            elif text.lower() in ['/screen', '/s']:
+                self._show_last_screen_analysis()
+                self.text_input.clear()
+                return
             
+            # Normal text prompt
+            self.text_prompt_submitted.emit(text)
+            self.text_input.clear()
+            
+    def _show_last_screen_analysis(self):
+        """Show the last screen analysis that was processed silently."""
+        # This will be handled by the main application
+        self.text_prompt_submitted.emit("__SHOW_LAST_SCREEN_ANALYSIS__")
+            
+    def _show_help_message(self):
+        """Show help message with available commands."""
+        current_time = datetime.now().strftime("%H:%M:%S")
+        
+        # Add separator if there's existing content
+        if self.output_area.toPlainText().strip():
+            self.output_area.append("")
+            self.output_area.append("─" * 40)
+            self.output_area.append("")
+        
+        help_text = """Available commands:
+• /clear or /c - Clear chat history
+• /screen or /s - Show last screen analysis
+• /help or /h - Show this help
+• Ctrl+L - Clear chat history (keyboard shortcut)
+
+You can also:
+• 👁 Click eye button to scan screen
+• 🎤 Click mic button to toggle audio
+• Ask any question directly"""
+        
+        self.output_area.append(f"<b>📚 Help</b> <span style='color: #888; font-size: 9px;'>[{current_time}]</span>")
+        self.output_area.append(help_text)
+        self.output_area.show()
+        
+        # Scroll to bottom
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        
     def add_response(self, title: str, summary: str, actions: List[str]):
-        """Add AI response with persistent display (no auto-hide)."""
-        # Update status
-        self.status_label.setText("✅ Response received")
+        """Add a non-streaming response with timestamp in chat-like format."""
+        self.status_label.setText("✅ Analysis complete")
         self.status_label.setStyleSheet("color: #66BB6A;")
         
-        # Show full output (no truncation since window is resizable)
-        if summary:
-            self.output_area.clear()
-            self.output_area.append(f"<b>{title}</b>")
-            self.output_area.append(summary)  # Show full text
+        # Show output area
+        self.output_area.show()
+        
+        # Add timestamp and separator if this isn't the first message
+        current_time = datetime.now().strftime("%H:%M:%S")
+        
+        # If there's existing content, add a separator
+        if self.output_area.toPlainText().strip():
+            self.output_area.append("")  # Empty line for spacing
+            self.output_area.append("─" * 40)  # Visual separator
+            self.output_area.append("")  # Another empty line
+        
+        # Add timestamped response
+        self.output_area.append(f"<b>{title}</b> <span style='color: #888; font-size: 9px;'>[{current_time}]</span>")
+        self.output_area.append(summary)  # Show full text
+        
+        if actions:
+            action_text = " • ".join(actions)  # Show all actions
+            self.output_area.append(f"<i>{action_text}</i>")
             
-            if actions:
-                action_text = " • ".join(actions)  # Show all actions
-                self.output_area.append(f"<i>{action_text}</i>")
-                
-            self.output_area.show()  # Show the output area
+        # Scroll to bottom to show the latest content
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
             
         # Reset status after 3 seconds but keep output visible
         QTimer.singleShot(3000, lambda: (
             self.status_label.setText("Ready"),
             self.status_label.setStyleSheet("color: #B0BEC5;")
         ))
-            
+        
     def _hide_output(self):
         """Hide the output area and reset status."""
         self.output_area.hide()
@@ -325,11 +400,171 @@ class OverlayWindow(QWidget):
         self.status_label.setStyleSheet("color: #B0BEC5;")
         
     def show_message(self, title: str, message: str):
-        """Show simple message."""
+        """Show message in chat-like format with timestamp."""
+        current_time = datetime.now().strftime("%H:%M:%S")
+        
+        # Show output area
+        self.output_area.show()
+        
+        # Add separator if there's existing content
+        if self.output_area.toPlainText().strip():
+            self.output_area.append("")
+            self.output_area.append("─" * 40)
+            self.output_area.append("")
+        
+        # Add timestamped message
+        self.output_area.append(f"<b>{title}</b> <span style='color: #888; font-size: 9px;'>[{current_time}]</span>")
+        self.output_area.append(message)
+        
+        # Update status briefly
         self.status_label.setText(f"{title}: {message[:30]}...")
         self.status_label.setStyleSheet("color: #FFA726;")
         
-        # Reset after 3 seconds
+        # Scroll to bottom
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        
+        # Reset status after 3 seconds but keep message in chat
+        QTimer.singleShot(3000, lambda: (
+            self.status_label.setText("Ready"),
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+        ))
+        
+    def start_streaming_response(self, title: str):
+        """Initialize UI for streaming response with chat-like append behavior."""
+        self.status_label.setText("🌊 Streaming...")
+        self.status_label.setStyleSheet("color: #42A5F5;")
+        
+        # Show output area if hidden
+        self.output_area.show()
+        
+        # Add timestamp and separator if this isn't the first message
+        current_time = datetime.now().strftime("%H:%M:%S")
+        
+        # If there's existing content, add a separator
+        if self.output_area.toPlainText().strip():
+            self.output_area.append("")  # Empty line for spacing
+            self.output_area.append("─" * 40)  # Visual separator
+            self.output_area.append("")  # Another empty line
+        
+        # Add timestamped header for the new message
+        self.output_area.append(f"<b>{title}</b> <span style='color: #888; font-size: 9px;'>[{current_time}]</span>")
+        self.output_area.append("")  # Empty line for content
+        
+        # Initialize streaming state
+        self.streaming_chunk_queue.clear()
+        self.is_streaming = True
+        
+        # Move cursor to the end for appending
+        cursor = self.output_area.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.End)
+        self.output_area.setTextCursor(cursor)
+        
+        # Scroll to bottom to show the latest message
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        
+    def append_streaming_chunk(self, chunk: str):
+        """Queue a chunk of streamed content for controlled display."""
+        if chunk:
+            if self.streaming_mode == 'instant':
+                # Immediate display like before
+                self._append_chunk_immediately(chunk)
+            else:
+                # Add to queue for controlled display
+                self.streaming_chunk_queue.append(chunk)
+                
+                # Start processing if not already running
+                if not self.streaming_timer.isActive():
+                    self._process_next_chunk()  # Process first chunk immediately
+                    self.streaming_timer.start(self.streaming_delay)
+                    
+    def _append_chunk_immediately(self, chunk: str):
+        """Append chunk immediately without delay (original behavior)."""
+        cursor = self.output_area.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.End)
+        cursor.insertText(chunk)
+        
+        # Scroll to bottom
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        QApplication.processEvents()
+        
+    def _process_next_chunk(self):
+        """Process the next chunk from the queue with controlled timing."""
+        if self.streaming_chunk_queue:
+            chunk = self.streaming_chunk_queue.pop(0)
+            
+            if self.streaming_mode == 'typing':
+                # Typing effect - add character by character
+                self._add_typing_effect(chunk)
+            else:
+                # Smooth mode - add chunk by chunk
+                self._append_chunk_immediately(chunk)
+                
+        else:
+            # Queue is empty, stop timer
+            self.streaming_timer.stop()
+            
+    def _add_typing_effect(self, chunk: str):
+        """Add chunk with typing effect (character by character)."""
+        cursor = self.output_area.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.End)
+        
+        # For typing effect, we'll add the whole chunk but it feels like typing
+        # due to the controlled timing between chunks
+        cursor.insertText(chunk)
+        
+        # Scroll to bottom
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        QApplication.processEvents()
+        
+    def complete_streaming_response(self, complete_response: str, actions: List[str] = None):
+        """Complete the streaming response and add actions if provided."""
+        # Process any remaining chunks in queue
+        while self.streaming_chunk_queue:
+            chunk = self.streaming_chunk_queue.pop(0)
+            self._append_chunk_immediately(chunk)
+            
+        # Stop streaming timer and reset state
+        self.streaming_timer.stop()
+        self.is_streaming = False
+        
+        self.status_label.setText("✅ Stream complete")
+        self.status_label.setStyleSheet("color: #66BB6A;")
+        
+        # Add actions if provided
+        if actions:
+            self.output_area.append("")  # Empty line
+            action_text = " • ".join(actions[:3])  # Limit to 3 actions
+            self.output_area.append(f"<i>{action_text}</i>")
+            
+        # Scroll to bottom to show the latest content
+        scrollbar = self.output_area.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
+        
+        # Reset status after 3 seconds but keep output visible
+        QTimer.singleShot(3000, lambda: (
+            self.status_label.setText("Ready"),
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+        ))
+        
+    def handle_streaming_error(self, error_message: str):
+        """Handle streaming errors."""
+        # Clean up streaming state
+        self.streaming_chunk_queue.clear()
+        self.streaming_timer.stop()
+        self.is_streaming = False
+        
+        self.status_label.setText("❌ Stream error")
+        self.status_label.setStyleSheet("color: #EF5350;")
+        
+        # Show error in output if visible
+        if self.output_area.isVisible():
+            self.output_area.append(f"\n<i>Error: {error_message}</i>")
+        
+        # Reset status after 3 seconds
         QTimer.singleShot(3000, lambda: (
             self.status_label.setText("Ready"),
             self.status_label.setStyleSheet("color: #B0BEC5;")
@@ -349,6 +584,24 @@ class OverlayWindow(QWidget):
         self.output_area.hide()
         self.status_label.setText("Ready")
         self.status_label.setStyleSheet("color: #B0BEC5;")
+        
+    def clear_chat_history(self):
+        """Clear the chat history and show confirmation."""
+        self.output_area.clear()
+        current_time = datetime.now().strftime("%H:%M:%S")
+        self.output_area.append(f"<i style='color: #888;'>Chat history cleared [{current_time}]</i>")
+        self.output_area.append("")
+        self.output_area.show()
+        
+        # Brief status update
+        self.status_label.setText("🗑 Chat cleared")
+        self.status_label.setStyleSheet("color: #FFA726;")
+        
+        # Reset status after 2 seconds
+        QTimer.singleShot(2000, lambda: (
+            self.status_label.setText("Ready"),
+            self.status_label.setStyleSheet("color: #B0BEC5;")
+        ))
         
     def set_monitoring_active(self, active: bool):
         """Update UI to reflect continuous monitoring state."""
@@ -375,4 +628,15 @@ class OverlayWindow(QWidget):
     def closeEvent(self, event):
         """Handle window close event."""
         self.window_closed.emit()
-        event.accept() 
+        event.accept()
+        
+    def keyPressEvent(self, event):
+        """Handle keyboard shortcuts."""
+        # Ctrl+L to clear chat history
+        if event.key() == Qt.Key.Key_L and event.modifiers() == Qt.KeyboardModifier.ControlModifier:
+            self.clear_chat_history()
+            event.accept()
+            return
+        
+        # Pass other events to parent
+        super().keyPressEvent(event) 

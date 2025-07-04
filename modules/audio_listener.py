@@ -9,14 +9,18 @@ import logging
 import time
 from typing import List, Dict, Any
 import queue
+from PyQt6.QtCore import QObject, pyqtSignal
 
-class AudioListener:
+class AudioListener(QObject):
     """
     Continuously listens to microphone input and maintains a running transcript.
     Thread-safe implementation for concurrent access by the Orchestrator.
     """
     
+    new_transcript_segment = pyqtSignal(str)  # Signal emitted when a new transcript segment is added
+    
     def __init__(self, config: Dict[str, Any]):
+        super().__init__()
         self.config = config
         self.logger = logging.getLogger(__name__)
         
@@ -159,7 +163,7 @@ class AudioListener:
                 
     def _add_to_transcript(self, text: str):
         """
-        Add transcribed text to the running transcript.
+        Add transcribed text to the running transcript and emit new_transcript_segment signal.
         
         Args:
             text: Transcribed text to add
@@ -180,6 +184,9 @@ class AudioListener:
                 
             self.logger.debug(f"Added to transcript: {text}")
             
+        # Emit signal outside the lock for thread safety
+        self.new_transcript_segment.emit(text)
+        
     def get_transcript(self) -> List[str]:
         """
         Get the current conversation transcript.

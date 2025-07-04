@@ -21,6 +21,12 @@ class Orchestrator(QObject):
     analysis_updated = pyqtSignal(dict)
     error_occurred = pyqtSignal(str)
     
+    # New streaming signals
+    stream_started = pyqtSignal(str)  # Signal when streaming begins
+    stream_chunk = pyqtSignal(str)    # Signal for each chunk of streamed content
+    stream_completed = pyqtSignal(str) # Signal when streaming is complete
+    stream_error = pyqtSignal(str)    # Signal for streaming errors
+    
     def __init__(self, config: Dict[str, Any], audio_listener=None):
         super().__init__()
         self.config = config
@@ -257,13 +263,20 @@ Transcript:
         Process a direct user prompt and return a simple response.
         This is different from transcript analysis - it's for direct Q&A.
         """
-        try:
-            # Enhanced prompt with capability awareness
-            prompt_text = f"""You are Dia, a helpful AI assistant with advanced multimodal capabilities. You can:
+        # Get retry configuration
+        ollama_config = self.config.get('ollama', {})
+        max_retries = ollama_config.get('max_retries', 2)
+        retry_delay = ollama_config.get('retry_delay', 1)
+        timeout = ollama_config.get('direct_prompt_timeout', 15)
+        
+        for attempt in range(max_retries + 1):  # max_retries + initial attempt
+            try:
+                # Enhanced prompt with capability awareness
+                prompt_text = f"""You are Dia, a helpful AI assistant with advanced multimodal capabilities. You can:
 
 - SEE: Read and analyze content on the user's screen in real-time using OCR
 - HEAR: Listen to and transcribe audio conversations 
-- ANALYZE: Process both visual and audio information to provide insights
+- ANALYZE: Process both visual and audio information
 
 The user is interacting with you through a resizable overlay window that stays on top. You have access to screen content and can hear conversations when audio is enabled.
 
@@ -271,50 +284,297 @@ Respond to the following request clearly and helpfully, keeping in mind your scr
 
 {user_prompt}"""
 
-            # Prepare Ollama request payload
+                # Prepare Ollama request payload
+                ollama_payload = {
+                    "model": ollama_config.get('model', 'llama3'),
+                    "prompt": prompt_text,
+                    "stream": False
+                }
+                
+                # Make request to Ollama API
+                base_url = ollama_config.get('base_url', 'http://localhost:11434')
+                
+                if attempt > 0:
+                    self.logger.info(f"Retry attempt {attempt}/{max_retries} for direct prompt")
+                    
+                self.logger.debug(f"Sending direct prompt request (attempt {attempt + 1})")
+                
+                response = requests.post(
+                    f"{base_url}/api/generate",
+                    json=ollama_payload,
+                    timeout=timeout
+                )
+                
+                if response.status_code == 200:
+                    response_data = response.json()
+                    response_text = response_data.get('response', '').strip()
+                    
+                    if response_text:
+                        self.logger.info(f"Direct prompt processed successfully (attempt {attempt + 1})")
+                        return response_text
+                    else:
+                        self.logger.warning(f"Empty response from LLM (attempt {attempt + 1})")
+                        if attempt == max_retries:
+                            return "I received your request but couldn't generate a response."
+                else:
+                    self.logger.error(f"Ollama request failed: {response.status_code} - {response.text}")
+                    if attempt == max_retries:
+                        return f"Service error (status {response.status_code}). Check if Ollama is running."
+                    
+            except requests.Timeout:
+                self.logger.error(f"LLM request timed out (attempt {attempt + 1}/{max_retries + 1})")
+                if attempt == max_retries:
+                    return "Request timed out. The AI service may be slow or unavailable."
+                else:
+                    self.logger.info(f"Retrying in {retry_delay} seconds...")
+                    time.sleep(retry_delay)
+                    
+            except requests.ConnectionError:
+                self.logger.error(f"Cannot connect to Ollama service (attempt {attempt + 1})")
+                if attempt == max_retries:
+                    return "Cannot connect to AI service. Please check if Ollama is running on localhost:11434."
+                else:
+                    self.logger.info(f"Retrying connection in {retry_delay} seconds...")
+                    time.sleep(retry_delay)
+                    
+            except requests.RequestException as e:
+                self.logger.error(f"Network error during LLM request: {e} (attempt {attempt + 1})")
+                if attempt == max_retries:
+                    return f"Network error: {str(e)}"
+                else:
+                    time.sleep(retry_delay)
+                    
+            except Exception as e:
+                self.logger.error(f"Unexpected error processing prompt: {e}")
+                return f"Unexpected error: {str(e)}"
+        
+        return "Maximum retry attempts reached. Please try again later."
+            
+    def process_direct_prompt_streaming_with_screen(self, user_prompt: str, screen_content: str, stream_id: str = "default") -> bool:
+        """
+        Process a direct user prompt with current screen content and streaming response.
+        Returns True if stream started successfully, False otherwise.
+        
+        Args:
+            user_prompt: The user's prompt to process
+            screen_content: Current screen content for AI context
+            stream_id: Identifier for this stream (for UI tracking)
+        """
+        try:
+            # Enhanced prompt with capability awareness and actual screen content
+            prompt_text = f"""You are Dia, a helpful AI assistant with advanced multimodal capabilities. You can:
+
+- SEE: Read and analyze content on the user's screen in real-time using OCR
+- HEAR: Listen to and transcribe audio conversations 
+- ANALYZE: Process both visual and audio information
+
+The user is interacting with you through a resizable overlay window that stays on top. You have access to screen content and can hear conversations when audio is enabled.
+
+CURRENT SCREEN CONTENT:
+---
+{screen_content}
+---
+
+Based on what you can see on the screen above and the user's request below, respond clearly and helpfully:
+
+USER REQUEST: {user_prompt}
+
+Important: You can actually see the screen content above. Reference specific elements, text, or applications you see when relevant to the user's question."""
+
+            # Prepare Ollama request payload for streaming
             ollama_config = self.config.get('ollama', {})
             ollama_payload = {
                 "model": ollama_config.get('model', 'llama3'),
                 "prompt": prompt_text,
-                "stream": False
+                "stream": True  # Enable streaming
             }
             
-            # Make request to Ollama API
+            # Make streaming request to Ollama API
             base_url = ollama_config.get('base_url', 'http://localhost:11434')
-            timeout = ollama_config.get('timeout', 15)  # Reasonable timeout for direct prompts
+            timeout = ollama_config.get('direct_prompt_timeout', 15)
+            
+            self.logger.debug(f"Starting streaming request with screen content for prompt: {user_prompt[:50]}...")
+            
+            # Emit stream started signal
+            self.stream_started.emit(stream_id)
             
             response = requests.post(
                 f"{base_url}/api/generate",
                 json=ollama_payload,
-                timeout=timeout
+                timeout=timeout,
+                stream=True  # Enable response streaming
             )
             
             if response.status_code == 200:
-                response_data = response.json()
-                response_text = response_data.get('response', '').strip()
+                complete_response = ""
                 
-                if response_text:
-                    self.logger.info("Direct prompt processed successfully")
-                    return response_text
-                else:
-                    self.logger.warning("Empty response from LLM")
-                    return "I received your request but couldn't generate a response."
+                # Process streaming response line by line
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            # Parse JSON from each line
+                            chunk_data = json.loads(line.decode('utf-8'))
+                            
+                            # Extract the response chunk
+                            response_chunk = chunk_data.get('response', '')
+                            
+                            if response_chunk:
+                                complete_response += response_chunk
+                                # Emit chunk signal for real-time UI updates
+                                self.stream_chunk.emit(response_chunk)
+                            
+                            # Check if streaming is done
+                            if chunk_data.get('done', False):
+                                self.logger.info(f"Streaming with screen content completed: {len(complete_response)} chars")
+                                self.stream_completed.emit(complete_response)
+                                return True
+                                
+                        except json.JSONDecodeError as e:
+                            self.logger.error(f"Error parsing streaming chunk: {e}")
+                            continue
+                
+                # If we get here, stream ended without 'done' signal
+                self.stream_completed.emit(complete_response)
+                return True
+                
             else:
-                self.logger.error(f"Ollama request failed: {response.status_code} - {response.text}")
-                return f"Service error (status {response.status_code}). Check if Ollama is running."
+                error_msg = f"Streaming request failed: {response.status_code} - {response.text}"
+                self.logger.error(error_msg)
+                self.stream_error.emit(error_msg)
+                return False
                 
         except requests.Timeout:
-            self.logger.error("LLM request timed out")
-            return "Request timed out. The AI service may be slow or unavailable."
+            error_msg = "Streaming request timed out. The AI service may be slow or unavailable."
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
         except requests.ConnectionError:
-            self.logger.error("Cannot connect to Ollama service")
-            return "Cannot connect to AI service. Please check if Ollama is running on localhost:11434."
+            error_msg = "Cannot connect to AI service. Please check if Ollama is running."
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
         except requests.RequestException as e:
-            self.logger.error(f"Network error during LLM request: {e}")
-            return f"Network error: {str(e)}"
+            error_msg = f"Network error during streaming: {str(e)}"
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
         except Exception as e:
-            self.logger.error(f"Unexpected error processing prompt: {e}")
-            return f"Unexpected error: {str(e)}"
+            error_msg = f"Unexpected error during streaming: {str(e)}"
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
+    def process_direct_prompt_streaming(self, user_prompt: str, stream_id: str = "default") -> bool:
+        """
+        Process a direct user prompt with streaming response.
+        Returns True if stream started successfully, False otherwise.
+        
+        Args:
+            user_prompt: The user's prompt to process
+            stream_id: Identifier for this stream (for UI tracking)
+        """
+        try:
+            # Enhanced prompt with capability awareness
+            prompt_text = f"""You are Dia, a helpful AI assistant with advanced multimodal capabilities. You can:
+
+- SEE: Read and analyze content on the user's screen in real-time using OCR
+- HEAR: Listen to and transcribe audio conversations 
+- ANALYZE: Process both visual and audio information
+
+The user is interacting with you through a resizable overlay window that stays on top. You have access to screen content and can hear conversations when audio is enabled.
+
+Respond to the following request clearly and helpfully, keeping in mind your screen reading and audio capabilities:
+
+{user_prompt}"""
+
+            # Prepare Ollama request payload for streaming
+            ollama_config = self.config.get('ollama', {})
+            ollama_payload = {
+                "model": ollama_config.get('model', 'llama3'),
+                "prompt": prompt_text,
+                "stream": True  # Enable streaming
+            }
+            
+            # Make streaming request to Ollama API
+            base_url = ollama_config.get('base_url', 'http://localhost:11434')
+            timeout = ollama_config.get('direct_prompt_timeout', 15)
+            
+            self.logger.debug(f"Starting streaming request for prompt: {user_prompt[:50]}...")
+            
+            # Emit stream started signal
+            self.stream_started.emit(stream_id)
+            
+            response = requests.post(
+                f"{base_url}/api/generate",
+                json=ollama_payload,
+                timeout=timeout,
+                stream=True  # Enable response streaming
+            )
+            
+            if response.status_code == 200:
+                complete_response = ""
+                
+                # Process streaming response line by line
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            # Parse JSON from each line
+                            chunk_data = json.loads(line.decode('utf-8'))
+                            
+                            # Extract the response chunk
+                            response_chunk = chunk_data.get('response', '')
+                            
+                            if response_chunk:
+                                complete_response += response_chunk
+                                # Emit chunk signal for real-time UI updates
+                                self.stream_chunk.emit(response_chunk)
+                            
+                            # Check if streaming is done
+                            if chunk_data.get('done', False):
+                                self.logger.info(f"Streaming completed: {len(complete_response)} chars")
+                                self.stream_completed.emit(complete_response)
+                                return True
+                                
+                        except json.JSONDecodeError as e:
+                            self.logger.error(f"Error parsing streaming chunk: {e}")
+                            continue
+                
+                # If we get here, stream ended without 'done' signal
+                self.stream_completed.emit(complete_response)
+                return True
+                
+            else:
+                error_msg = f"Streaming request failed: {response.status_code} - {response.text}"
+                self.logger.error(error_msg)
+                self.stream_error.emit(error_msg)
+                return False
+                
+        except requests.Timeout:
+            error_msg = "Streaming request timed out. The AI service may be slow or unavailable."
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
+        except requests.ConnectionError:
+            error_msg = "Cannot connect to AI service. Please check if Ollama is running."
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
+        except requests.RequestException as e:
+            error_msg = f"Network error during streaming: {str(e)}"
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
+            
+        except Exception as e:
+            error_msg = f"Unexpected error during streaming: {str(e)}"
+            self.logger.error(error_msg)
+            self.stream_error.emit(error_msg)
+            return False
             
     def trigger_manual_analysis(self):
         """Manually trigger an analysis cycle."""

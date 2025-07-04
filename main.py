@@ -11,6 +11,7 @@ import traceback
 from typing import Dict, Any, Optional, List
 from PyQt6.QtWidgets import QApplication
 from PyQt6.QtCore import QTimer, QObject, pyqtSignal, QThread
+import time
 
 # Import core modules
 from core.orchestrator import Orchestrator
@@ -66,6 +67,21 @@ class DiaAssistant(QObject):
         # Load configuration
         self.config = self._load_config()
         
+        # Screen monitoring state
+        self._screen_monitoring_active = False
+        self._last_screen_analysis_time = 0
+        self._screen_analysis_cooldown = self.config.get('screen_monitoring', {}).get('analysis_cooldown_seconds', 30)
+        self._screen_analysis_enabled = self.config.get('screen_monitoring', {}).get('analysis_enabled', True)
+        self._last_screen_analysis = ""  # Store last analysis for context
+        
+        # Audio state
+        self.audio_active = False
+        
+        # Thread management
+        self._active_threads = []
+        self._active_workers = []
+        self._is_shutting_down = False
+        
         # Initialize components
         self.app = None
         self.orchestrator = None
@@ -73,14 +89,6 @@ class DiaAssistant(QObject):
         self.audio_listener = None
         self.screen_scanner = None
         self.overlay_window = None
-        
-        # Threading management - track active threads for proper cleanup
-        self._active_threads: List[QThread] = []
-        self._active_workers: List[Worker] = []
-        self._is_shutting_down = False
-        
-        # State tracking
-        self.audio_active = False
         
         self.logger.info("Dia AI Assistant initialized")
         
@@ -162,6 +170,9 @@ class DiaAssistant(QObject):
             # Setup signal connections
             self._setup_signal_connections()
             
+            # Connect new transcript segment signal for voice prompts
+            self.audio_listener.new_transcript_segment.connect(self._handle_new_voice_prompt)
+            
             self.logger.info("All components initialized successfully")
             
         except Exception as e:
@@ -183,13 +194,19 @@ class DiaAssistant(QObject):
         self.overlay_window.audio_toggle_requested.connect(self._handle_audio_toggle)
         
         # Connect UI text prompt submissions
-        self.overlay_window.text_prompt_submitted.connect(self._handle_text_prompt)
+        self.overlay_window.text_prompt_submitted.connect(self._handle_text_prompt_streaming)
         
         # Connect window close to application shutdown
         self.overlay_window.window_closed.connect(self._handle_window_closed)
         
         # Connect screen change signal for thread-safe UI updates
         self.screen_change_detected.connect(self._handle_screen_change_safe)
+        
+        # Connect streaming signals
+        self.orchestrator.stream_started.connect(self._handle_stream_started)
+        self.orchestrator.stream_chunk.connect(self._handle_stream_chunk)
+        self.orchestrator.stream_completed.connect(self._handle_stream_completed)
+        self.orchestrator.stream_error.connect(self._handle_stream_error)
         
         self.logger.info("Signal connections established")
         
@@ -386,35 +403,134 @@ class DiaAssistant(QObject):
     def _handle_screen_change_safe(self, screen_content: str):
         """
         Handle detected screen content changes (runs on main thread).
-        This method now starts a background task for analysis.
+        Shows AI analysis for significant changes while filtering minor updates.
         
         Args:
             screen_content: The new screen content that was detected
         """
-        self.logger.info("Screen content change detected, starting background analysis.")
-        self.overlay_window.show_message("🧠 Analyzing...", "Screen change detected...")
+        current_time = time.time()
+        time_since_last_analysis = current_time - self._last_screen_analysis_time
         
-        # Enhanced analysis prompt for screen changes
-        analysis_prompt = f"""I'm Dia, continuously monitoring your screen. I just detected a significant change in your screen content:
+        self.logger.info(f"Screen content change detected. Time since last analysis: {time_since_last_analysis:.1f}s")
+        
+        # Check if screen analysis is enabled
+        if not self._screen_analysis_enabled:
+            self.logger.debug("Screen analysis disabled")
+            # Just update status briefly, don't add to chat
+            self.overlay_window.status_label.setText("👁 Screen changed (analysis disabled)")
+            self.overlay_window.status_label.setStyleSheet("color: #888;")
+            QTimer.singleShot(2000, lambda: (
+                self.overlay_window.status_label.setText("Ready"),
+                self.overlay_window.status_label.setStyleSheet("color: #B0BEC5;")
+            ))
+            return
+        
+        # Check cooldown period to prevent LLM overload
+        if time_since_last_analysis < self._screen_analysis_cooldown:
+            remaining_cooldown = self._screen_analysis_cooldown - time_since_last_analysis
+            self.logger.debug(f"Screen analysis on cooldown. {remaining_cooldown:.1f}s remaining")
+            # Just update status briefly, don't add to chat
+            self.overlay_window.status_label.setText(f"👁 Change detected (analysis in {remaining_cooldown:.0f}s)")
+            self.overlay_window.status_label.setStyleSheet("color: #888;")
+            QTimer.singleShot(2000, lambda: (
+                self.overlay_window.status_label.setText("Ready"),
+                self.overlay_window.status_label.setStyleSheet("color: #B0BEC5;")
+            ))
+            return
+        
+        # Update last analysis time
+        self._last_screen_analysis_time = current_time
+        
+        self.logger.info("Starting screen change analysis with chat output for significant changes")
+        
+        # Brief status update while processing
+        self.overlay_window.status_label.setText("🧠 Analyzing current screen...")
+        self.overlay_window.status_label.setStyleSheet("color: #42A5F5;")
+        
+        # Get the absolute latest screen content to ensure freshness
+        try:
+            fresh_screen_content = self.screen_scanner.capture_and_extract_text()
+            if fresh_screen_content and not fresh_screen_content.startswith("OCR_ERROR:"):
+                screen_content = fresh_screen_content
+                self.logger.debug("Using fresh screen capture for analysis")
+            else:
+                self.logger.debug("Using detected screen content for analysis")
+        except Exception as e:
+            self.logger.warning(f"Could not get fresh screen content: {e}")
+            # Use the detected content as fallback
+        
+        # Enhanced analysis prompt focusing only on current content
+        analysis_prompt = f"""I'm Dia, your AI assistant. I'm looking at your screen right now and can see what's currently displayed.
 
-NEW SCREEN CONTENT:
+WHAT I CAN SEE ON YOUR SCREEN RIGHT NOW:
 ---
 {screen_content[:1500]}
 ---
 
-Please analyze this updated content and provide:
-- What type of change occurred (new window, content update, navigation, etc.)
-- Key information now visible on screen
-- Any important insights or patterns
-- Suggestions for actions the user might want to take
+Based on what I can see on your screen at this moment, determine if this warrants your attention:
 
-Provide a helpful summary of what changed and what's now visible."""
+- If this shows something IMPORTANT that you might want to know about (new application, different content, errors, completed tasks, etc.), provide a brief, natural observation about what's currently visible and any helpful insights.
+
+- If this is just a MINOR update (small changes, scrolling, refreshes), respond with exactly: "MINOR_CHANGE_DETECTED"
+
+Focus ONLY on what's currently visible on your screen right now. Be conversational and helpful about the current content you can see."""
         
+        # Process screen analysis with intelligent output filtering
         self._run_task_in_background(
             self.orchestrator.process_direct_prompt,
-            self._handle_screen_analysis_complete,
+            self._handle_intelligent_screen_analysis_complete,
             analysis_prompt
         )
+
+    def _handle_intelligent_screen_analysis_complete(self, response: Optional[str]):
+        """Handle screen analysis with intelligent filtering for chat display."""
+        if response:
+            self.logger.info(f"Screen analysis complete: {len(response)} chars")
+            
+            # Check if this is marked as a minor change
+            if response.strip() == "MINOR_CHANGE_DETECTED":
+                self.logger.debug("Minor screen change detected, not showing in chat")
+                # Store for context but don't display
+                self._last_screen_analysis = f"Minor change detected at {time.strftime('%H:%M:%S')}"
+                
+                # Brief status update only
+                self.overlay_window.status_label.setText("👁 Monitoring...")
+                self.overlay_window.status_label.setStyleSheet("color: #4CAF50;")
+                QTimer.singleShot(1000, lambda: (
+                    self.overlay_window.status_label.setText("Ready"),
+                    self.overlay_window.status_label.setStyleSheet("color: #B0BEC5;")
+                ))
+            else:
+                # This is a significant change - show in chat
+                self.logger.info("Significant screen change detected, displaying analysis")
+                self._last_screen_analysis = response
+                
+                self.overlay_window.add_response(
+                    "🔄 Screen Change Detected", 
+                    response,
+                    ["Continue monitoring", "Stop monitoring", "Ask follow-up"]
+                )
+                
+                # Reset status
+                QTimer.singleShot(1000, lambda: (
+                    self.overlay_window.status_label.setText("Ready"),
+                    self.overlay_window.status_label.setStyleSheet("color: #B0BEC5;")
+                ))
+        else:
+            self.logger.warning("Screen analysis failed")
+            
+            # Brief status update to show analysis failed
+            self.overlay_window.status_label.setText("👁 Analysis failed")
+            self.overlay_window.status_label.setStyleSheet("color: #EF5350;")
+            QTimer.singleShot(2000, lambda: (
+                self.overlay_window.status_label.setText("Ready"),
+                self.overlay_window.status_label.setStyleSheet("color: #B0BEC5;")
+            ))
+
+    def _handle_screen_streaming_started(self, success: bool):
+        """Handle the result of starting a screen analysis streaming request."""
+        if not success:
+            self.overlay_window.handle_streaming_error("Failed to start screen analysis stream")
 
     def _handle_screen_analysis_complete(self, response: Optional[str]):
         """Handle the result from the background screen analysis."""
@@ -531,30 +647,142 @@ Provide a clear, helpful summary of what I can see on your screen."""
             self.logger.error(error_msg)
             self.overlay_window.show_message("Audio Error", error_msg)
             
-    def _handle_text_prompt(self, prompt: str):
+    def _handle_text_prompt_streaming(self, prompt: str):
         """
-        Handle text prompts with proper direct prompt processing in a background thread.
+        Handle text prompts with streaming response for real-time updates.
         """
-        self.logger.info(f"Processing text prompt: {prompt}")
-        self.overlay_window.show_message("🤔 Processing...", "Sending to AI...")
+        self.logger.info(f"Processing streaming text prompt: {prompt}")
         
-        self._run_task_in_background(
-            self.orchestrator.process_direct_prompt,
-            self._handle_text_prompt_analysis_complete,
-            prompt
-        )
-
-    def _handle_text_prompt_analysis_complete(self, response: Optional[str]):
-        """Handle the result from the background text prompt analysis."""
-        if response:
-            self.overlay_window.add_response("🤖 Dia AI", response, ["Ask follow-up", "Use screen reader", "Listen to audio"])
-            self.logger.info("Text prompt processed successfully")
-        else:
-            self.overlay_window.add_response("❌ AI Error", 
-                                            "No response generated", 
-                                            ["Check Ollama", "Try again"])
-            self.logger.warning("No response generated for text prompt")
+        # Check for special commands
+        if prompt == "__SHOW_LAST_SCREEN_ANALYSIS__":
+            self._show_last_screen_analysis_in_chat()
+            return
+        
+        # Display the user's prompt in the chat first
+        self.overlay_window.add_response("💬 You", prompt, [])
+        
+        # Get current screen content to provide context to AI
+        current_screen_content = self._get_current_screen_context()
+        
+        # Run streaming on main thread to ensure signals reach UI properly
+        # Background threads with PyQt signals can have connection issues
+        try:
+            success = self.orchestrator.process_direct_prompt_streaming_with_screen(
+                prompt,
+                current_screen_content,
+                f"prompt_{int(time.time())}"  # Unique stream ID
+            )
+            if not success:
+                self.overlay_window.handle_streaming_error("Failed to start streaming")
+        except Exception as e:
+            self.logger.error(f"Error starting stream: {e}")
+            self.overlay_window.handle_streaming_error(f"Streaming error: {str(e)}")
+    
+    def _get_current_screen_context(self) -> str:
+        """Get current screen content for AI context, prioritizing fresh hybrid analysis."""
+        try:
+            # Use the enhanced hybrid screen analysis (vision + OCR + visual detection)
+            analysis_result = self.screen_scanner.get_hybrid_screen_analysis()
             
+            # Check if we got good results
+            if analysis_result.get('success'):
+                confidence = analysis_result.get('confidence', 0.0)
+                summary = analysis_result.get('summary', '')
+                methods_used = analysis_result.get('analysis_methods', [])
+                
+                # If hybrid analysis succeeded with good confidence
+                if confidence > 0.4 and summary:
+                    # Create detailed context from the analysis
+                    context_parts = []
+                    
+                    # Add the main summary
+                    context_parts.append(f"Screen Analysis: {summary}")
+                    
+                    # Add specific details if available
+                    if 'vision_analysis' in analysis_result:
+                        vision_text = analysis_result['vision_analysis'][:800]  # Limit length
+                        context_parts.append(f"Visual Details: {vision_text}")
+                    
+                    if 'ocr_text' in analysis_result:
+                        ocr_text = analysis_result['ocr_text'][:400]  # Shorter for OCR
+                        if ocr_text.strip():
+                            context_parts.append(f"Text Content: {ocr_text}")
+                    
+                    if 'ui_elements' in analysis_result:
+                        ui_info = analysis_result['ui_elements']
+                        if ui_info.get('total_elements', 0) > 0:
+                            context_parts.append(f"UI Elements: {ui_info.get('total_elements')} detected")
+                    
+                    # Add analysis metadata
+                    context_parts.append(f"Analysis Methods: {', '.join(methods_used)}")
+                    context_parts.append(f"Confidence: {confidence:.2f}")
+                    
+                    analysis_text = " | ".join(context_parts)
+                    self.logger.info(f"Hybrid screen analysis successful: {len(analysis_text)} chars, confidence {confidence:.2f}")
+                    return analysis_text
+            
+            # If hybrid analysis failed, try fallback to simple OCR
+            if self.screen_scanner.tesseract_available:
+                self.logger.info("Hybrid analysis failed, falling back to simple OCR")
+                ocr_text = self.screen_scanner.capture_and_extract_text()
+                if ocr_text and not ocr_text.startswith("OCR_ERROR") and not ocr_text.startswith("Failed"):
+                    return f"Screen Text (OCR): {ocr_text[:600]}"
+            
+            # Final fallback: check if we have any previous analysis
+            if hasattr(self, '_last_screen_analysis') and self._last_screen_analysis:
+                prev_analysis = self._last_screen_analysis
+                # Only use previous analysis if it's not a status message
+                if not any(phrase in prev_analysis.lower() for phrase in [
+                    'minor change detected', 'change detected', 'monitoring', 'analyzing'
+                ]):
+                    self.logger.info("Using previous screen analysis as fallback")
+                    return f"Previous screen analysis: {prev_analysis[:600]}"
+            
+            # No screen context available
+            self.logger.warning("No screen context available")
+            return "No current screen content available"
+            
+        except Exception as e:
+            self.logger.error(f"Failed to get screen context: {e}")
+            return f"Screen analysis error: {e}"
+        
+    def _show_last_screen_analysis_in_chat(self):
+        """Show the last screen analysis in the chat interface."""
+        if self._last_screen_analysis:
+            self.overlay_window.add_response(
+                "👁 Last Screen Analysis",
+                self._last_screen_analysis,
+                ["Continue monitoring", "Stop monitoring", "Ask follow-up"]
+            )
+        else:
+            self.overlay_window.add_response(
+                "👁 Screen Analysis",
+                "No screen analysis available yet. Screen monitoring analyzes changes in the background.",
+                ["Start monitoring", "Capture screen now"]
+            )
+        
+    def _handle_stream_started(self, stream_id: str):
+        """Handle when a stream starts."""
+        self.logger.info(f"Stream started: {stream_id}")
+        self.overlay_window.start_streaming_response("🤖 Dia AI")
+        
+    def _handle_stream_chunk(self, chunk: str):
+        """Handle each chunk of streamed content."""
+        self.overlay_window.append_streaming_chunk(chunk)
+        
+    def _handle_stream_completed(self, complete_response: str):
+        """Handle when streaming is complete."""
+        self.logger.info(f"Stream completed: {len(complete_response)} chars")
+        self.overlay_window.complete_streaming_response(
+            complete_response, 
+            ["Ask follow-up", "Use screen reader", "Listen to audio"]
+        )
+        
+    def _handle_stream_error(self, error_message: str):
+        """Handle streaming errors."""
+        self.logger.error(f"Streaming error: {error_message}")
+        self.overlay_window.handle_streaming_error(error_message)
+        
     def _handle_error(self, error_message: str):
         """
         Handle error messages from components.
@@ -570,6 +798,12 @@ Provide a clear, helpful summary of what I can see on your screen."""
         """Handle overlay window close event."""
         self.logger.info("Overlay window closed, shutting down application")
         self.shutdown()
+        
+    def _handle_new_voice_prompt(self, text: str):
+        """
+        Display a new voice (audio) prompt in the chat as soon as it is transcribed.
+        """
+        self.overlay_window.add_response("🗣️ You (voice)", text, [])
         
     def start(self):
         """Start the Dia AI Assistant."""
